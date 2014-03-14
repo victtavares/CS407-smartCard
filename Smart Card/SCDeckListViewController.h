@@ -1,5 +1,5 @@
 //
-//  SCViewController.h
+//  SCDeckListViewController.h
 //  Smart Card
 //
 //  Created by Victor Tavares on 3/13/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCViewController : UIViewController
+@interface SCDeckListViewController : UIViewController
 
 @end

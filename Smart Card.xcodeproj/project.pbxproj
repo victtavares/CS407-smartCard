@@ -14,13 +14,14 @@
 		E1FA219818D242CA00989AFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA219718D242CA00989AFB /* main.m */; };
 		E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA219B18D242CA00989AFB /* SCAppDelegate.m */; };
 		E1FA219F18D242CA00989AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1FA219D18D242CA00989AFB /* Main.storyboard */; };
-		E1FA21A218D242CA00989AFB /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21A118D242CA00989AFB /* SCViewController.m */; };
 		E1FA21A418D242CA00989AFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1FA21A318D242CA00989AFB /* Images.xcassets */; };
 		E1FA21AB18D242CA00989AFB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA21AA18D242CA00989AFB /* XCTest.framework */; };
 		E1FA21AC18D242CA00989AFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218B18D242CA00989AFB /* Foundation.framework */; };
 		E1FA21AD18D242CA00989AFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218F18D242CA00989AFB /* UIKit.framework */; };
 		E1FA21B518D242CA00989AFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1FA21B318D242CA00989AFB /* InfoPlist.strings */; };
 		E1FA21B718D242CA00989AFB /* Smart_CardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21B618D242CA00989AFB /* Smart_CardTests.m */; };
+		E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21C118D251B300989AFB /* SCDeckViewController.m */; };
+		E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,16 @@
 		E1FA219A18D242CA00989AFB /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
 		E1FA219B18D242CA00989AFB /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
 		E1FA219E18D242CA00989AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E1FA21A018D242CA00989AFB /* SCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
-		E1FA21A118D242CA00989AFB /* SCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
 		E1FA21A318D242CA00989AFB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E1FA21A918D242CA00989AFB /* Smart CardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart CardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FA21AA18D242CA00989AFB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E1FA21B218D242CA00989AFB /* Smart CardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smart CardTests-Info.plist"; sourceTree = "<group>"; };
 		E1FA21B418D242CA00989AFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E1FA21B618D242CA00989AFB /* Smart_CardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smart_CardTests.m; sourceTree = "<group>"; };
+		E1FA21C018D251B300989AFB /* SCDeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckViewController.h; sourceTree = "<group>"; };
+		E1FA21C118D251B300989AFB /* SCDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckViewController.m; sourceTree = "<group>"; };
+		E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckListViewController.h; sourceTree = "<group>"; };
+		E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +117,11 @@
 			children = (
 				E1FA219A18D242CA00989AFB /* SCAppDelegate.h */,
 				E1FA219B18D242CA00989AFB /* SCAppDelegate.m */,
+				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
+				E1FA21C118D251B300989AFB /* SCDeckViewController.m */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
-				E1FA21A018D242CA00989AFB /* SCViewController.h */,
-				E1FA21A118D242CA00989AFB /* SCViewController.m */,
+				E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */,
+				E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
 				E1FA219218D242CA00989AFB /* Supporting Files */,
 			);
@@ -251,7 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
-				E1FA21A218D242CA00989AFB /* SCViewController.m in Sources */,
+				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
+				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
