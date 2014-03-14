@@ -10,7 +10,7 @@
 
 @interface SCDeckViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *favoriteSegmentControl;
-
+//Make some comment
 
 
 @end
