@@ -273,7 +273,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Manage Deck" id="Ppp-ih-d6C"/>
                     <connections>
-                        <outlet property="favoriteSwitch" destination="Mox-xz-Pew" id="0OD-ZM-bQk"/>
+                        <outlet property="favoriteSwitch" destination="Mox-xz-Pew" id="W2J-UO-SEc"/>
                         <outlet property="nameTextField" destination="5Ni-rS-YSP" id="HTu-Nj-J6n"/>
                     </connections>
                 </viewController>

@@ -10,8 +10,12 @@
 #import "Deck+CRUD.h"
 @interface SCDeckViewController () <UITextFieldDelegate>
 
+@end
+
+
 @interface SCDeckViewController ()
-@property (weak, nonatomic) IBOutlet UISegmentedControl *favoriteSegmentControl;
+@property (weak, nonatomic) IBOutlet UISwitch *favoriteSwitch;
+
 //Make some comment
 
 
