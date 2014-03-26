@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
+		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
+		E1B91AEA18E213890028B355 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AE918E213890028B355 /* Card.m */; };
+		E1B91AED18E213890028B355 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AEC18E213890028B355 /* Deck.m */; };
 		E1FA218C18D242CA00989AFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218B18D242CA00989AFB /* Foundation.framework */; };
 		E1FA218E18D242CA00989AFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218D18D242CA00989AFB /* CoreGraphics.framework */; };
 		E1FA219018D242CA00989AFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218F18D242CA00989AFB /* UIKit.framework */; };
@@ -35,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E1B91AD418E210AD0028B355 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E1B91AE818E213890028B355 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		E1B91AE918E213890028B355 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		E1B91AEB18E213890028B355 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		E1B91AEC18E213890028B355 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		E1FA218818D242CA00989AFB /* Smart Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FA218B18D242CA00989AFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1FA218D18D242CA00989AFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */,
 				E1FA218E18D242CA00989AFB /* CoreGraphics.framework in Frameworks */,
 				E1FA219018D242CA00989AFB /* UIKit.framework in Frameworks */,
 				E1FA218C18D242CA00989AFB /* Foundation.framework in Frameworks */,
@@ -82,6 +93,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1B91AD018E2107C0028B355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */,
+				E1B91AEB18E213890028B355 /* Deck.h */,
+				E1B91AEC18E213890028B355 /* Deck.m */,
+				E1B91AE818E213890028B355 /* Card.h */,
+				E1B91AE918E213890028B355 /* Card.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E1B91AD218E210910028B355 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
+				E1FA21C118D251B300989AFB /* SCDeckViewController.m */,
+				E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */,
+				E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		E1FA217F18D242CA00989AFB = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +138,7 @@
 		E1FA218A18D242CA00989AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E163C6EF18E20BF00008DE4C /* CoreData.framework */,
 				E1FA218B18D242CA00989AFB /* Foundation.framework */,
 				E1FA218D18D242CA00989AFB /* CoreGraphics.framework */,
 				E1FA218F18D242CA00989AFB /* UIKit.framework */,
@@ -115,13 +150,11 @@
 		E1FA219118D242CA00989AFB /* Smart Card */ = {
 			isa = PBXGroup;
 			children = (
+				E1B91AD218E210910028B355 /* Controller */,
 				E1FA219A18D242CA00989AFB /* SCAppDelegate.h */,
 				E1FA219B18D242CA00989AFB /* SCAppDelegate.m */,
-				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
-				E1FA21C118D251B300989AFB /* SCDeckViewController.m */,
+				E1B91AD018E2107C0028B355 /* Model */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
-				E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */,
-				E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
 				E1FA219218D242CA00989AFB /* Supporting Files */,
 			);
@@ -256,8 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
+				E1B91AED18E213890028B355 /* Deck.m in Sources */,
 				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
+				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
+				E1B91AEA18E213890028B355 /* Card.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +499,7 @@
 				E1FA21BC18D242CA00989AFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1FA21BD18D242CA00989AFB /* Build configuration list for PBXNativeTarget "Smart CardTests" */ = {
 			isa = XCConfigurationList;
@@ -471,8 +508,22 @@
 				E1FA21BF18D242CA00989AFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1B91AD418E210AD0028B355 /* Model.xcdatamodel */,
+			);
+			currentVersion = E1B91AD418E210AD0028B355 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E1FA218018D242CA00989AFB /* Project object */;
 }
