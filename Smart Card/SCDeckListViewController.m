@@ -7,49 +7,66 @@
 //
 
 #import "SCDeckListViewController.h"
-#import "CardDatabaseAvaliability.h"
 #import "SCDeckViewController.h"
 #import "SCAppDelegate.h"
+#import "Deck.h"
 
 @interface SCDeckListViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *originalTableView;
+
 
 @end
 
 @implementation SCDeckListViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView = self.originalTableView;
+    // Do any additional setup after loading the view.
+}
+
 
 - (void)awakeFromNib {
     
     SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [appDelegate cardDatabaseContext];
     
-//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-//    [center addObserverForName:CardDatabaseAvailabilityNotification
-//                        object:nil
-//                         queue:nil
-//                    usingBlock:^(NSNotification *note) {
-//                        self.managedObjectContext = note.userInfo[CardDatabaseAvailabilityContext];
-//                        NSLog(@"recebeu a notification:%@",note.userInfo);
-//                    }];
-//    
-//    NSLog(@"ta no Awake: %@",self.managedObjectContext);
+}
+
+- (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    _managedObjectContext = managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
+    request.predicate = nil;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                              ascending:YES
+                                                               selector:@selector(localizedStandardCompare:)]];
+    
+    
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Deck Cell"];
+    
+    Deck *deck = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = deck.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",[[deck cards]count]];
     
     return cell;
+
 }
 
 

@@ -7,9 +7,10 @@
 //
 
 #import "SCDeckViewController.h"
-#import "SCDeckManager.h"
+#import "Deck+CRUD.h"
 @interface SCDeckViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UISegmentedControl *favoriteSegmentControl;
+
+@property (weak, nonatomic) IBOutlet UISwitch *favoriteSwitch;
 
 
 
@@ -44,7 +45,9 @@
 
 - (IBAction)saveButtonPressed:(id)sender {
     
-    [SCDeckManager addDeckWithName:self.nameTextField.text intoManagedObjectContext:self.context];
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    
+    [Deck addDeckWithName:self.nameTextField.text isFavorite:self.favoriteSwitch.isOn withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.context];
 }
 
 #pragma Mark - Text View Delegate

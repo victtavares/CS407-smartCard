@@ -2,7 +2,7 @@
 //  Deck.m
 //  Smart Card
 //
-//  Created by Victor Tavares on 3/25/14.
+//  Created by Victor Tavares on 3/26/14.
 //  Copyright (c) 2014 CS407. All rights reserved.
 //
 
@@ -16,7 +16,6 @@
 @dynamic lat;
 @dynamic lon;
 @dynamic name;
-@dynamic unique;
 @dynamic cards;
 
 @end

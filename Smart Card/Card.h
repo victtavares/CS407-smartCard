@@ -2,7 +2,7 @@
 //  Card.h
 //  Smart Card
 //
-//  Created by Victor Tavares on 3/25/14.
+//  Created by Victor Tavares on 3/26/14.
 //  Copyright (c) 2014 CS407. All rights reserved.
 //
 
@@ -17,7 +17,6 @@
 @property (nonatomic, retain) NSString * contentB;
 @property (nonatomic, retain) NSData * imageA;
 @property (nonatomic, retain) NSString * imageB;
-@property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) Deck *deckOwnsMe;
 
 @end

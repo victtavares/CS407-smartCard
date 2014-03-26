@@ -8,7 +8,6 @@
 
 #import "SCAppDelegate.h"
 #import "SCAppDelegate+MCO.h"
-#import "CardDatabaseAvaliability.h"
 
 @interface SCAppDelegate()
 @end

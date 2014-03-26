@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
 		E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */; };
-		E167A49918E27322007DCA3B /* SCDeckManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49818E27322007DCA3B /* SCDeckManager.m */; };
-		E167A49C18E281B3007DCA3B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49B18E281B3007DCA3B /* Card.m */; };
-		E167A49F18E281B4007DCA3B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49E18E281B4007DCA3B /* Deck.m */; };
 		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
+		E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */; };
+		E1D0ACB818E33FE8000D795B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB718E33FE8000D795B /* Card.m */; };
+		E1D0ACBB18E33FE8000D795B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACBA18E33FE8000D795B /* Deck.m */; };
+		E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */; };
 		E1FA218C18D242CA00989AFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218B18D242CA00989AFB /* Foundation.framework */; };
 		E1FA218E18D242CA00989AFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218D18D242CA00989AFB /* CoreGraphics.framework */; };
 		E1FA219018D242CA00989AFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218F18D242CA00989AFB /* UIKit.framework */; };
@@ -44,14 +45,15 @@
 		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E167A49318E262E8007DCA3B /* SCAppDelegate+MCO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCAppDelegate+MCO.h"; sourceTree = "<group>"; };
 		E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCAppDelegate+MCO.m"; sourceTree = "<group>"; };
-		E167A49618E26A9C007DCA3B /* CardDatabaseAvaliability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardDatabaseAvaliability.h; sourceTree = "<group>"; };
-		E167A49718E27322007DCA3B /* SCDeckManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckManager.h; sourceTree = "<group>"; };
-		E167A49818E27322007DCA3B /* SCDeckManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckManager.m; sourceTree = "<group>"; };
-		E167A49A18E281B3007DCA3B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		E167A49B18E281B3007DCA3B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		E167A49D18E281B4007DCA3B /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
-		E167A49E18E281B4007DCA3B /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		E1B91AD418E210AD0028B355 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCoreDataViewController.h; sourceTree = "<group>"; };
+		E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCoreDataViewController.m; sourceTree = "<group>"; };
+		E1D0ACB618E33FE8000D795B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		E1D0ACB718E33FE8000D795B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		E1D0ACB918E33FE8000D795B /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		E1D0ACBA18E33FE8000D795B /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		E1D0ACBC18E3416C000D795B /* Deck+CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Deck+CRUD.h"; sourceTree = "<group>"; };
+		E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Deck+CRUD.m"; sourceTree = "<group>"; };
 		E1FA218818D242CA00989AFB /* Smart Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FA218B18D242CA00989AFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1FA218D18D242CA00989AFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,12 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */,
-				E167A49D18E281B4007DCA3B /* Deck.h */,
-				E167A49E18E281B4007DCA3B /* Deck.m */,
-				E167A49A18E281B3007DCA3B /* Card.h */,
-				E167A49B18E281B3007DCA3B /* Card.m */,
-				E167A49718E27322007DCA3B /* SCDeckManager.h */,
-				E167A49818E27322007DCA3B /* SCDeckManager.m */,
+				E1D0ACB918E33FE8000D795B /* Deck.h */,
+				E1D0ACBA18E33FE8000D795B /* Deck.m */,
+				E1D0ACBC18E3416C000D795B /* Deck+CRUD.h */,
+				E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */,
+				E1D0ACB618E33FE8000D795B /* Card.h */,
+				E1D0ACB718E33FE8000D795B /* Card.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -119,6 +121,8 @@
 			children = (
 				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
 				E1FA21C118D251B300989AFB /* SCDeckViewController.m */,
+				E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */,
+				E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */,
 				E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */,
 				E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */,
 			);
@@ -163,7 +167,6 @@
 				E1FA219B18D242CA00989AFB /* SCAppDelegate.m */,
 				E167A49318E262E8007DCA3B /* SCAppDelegate+MCO.h */,
 				E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */,
-				E167A49618E26A9C007DCA3B /* CardDatabaseAvaliability.h */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
 				E1B91AD218E210910028B355 /* Controller */,
@@ -300,14 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D0ACBB18E33FE8000D795B /* Deck.m in Sources */,
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
 				E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */,
-				E167A49918E27322007DCA3B /* SCDeckManager.m in Sources */,
+				E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */,
 				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
-				E167A49C18E281B3007DCA3B /* Card.m in Sources */,
+				E1D0ACB818E33FE8000D795B /* Card.m in Sources */,
+				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
-				E167A49F18E281B4007DCA3B /* Deck.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

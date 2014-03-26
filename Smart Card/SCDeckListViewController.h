@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCCoreDataViewController.h"
 
-@interface SCDeckListViewController : UIViewController
+
+@interface SCDeckListViewController : SCCoreDataViewController
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end
