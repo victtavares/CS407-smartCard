@@ -12,10 +12,10 @@
 
 @implementation Deck
 
-@dynamic name;
 @dynamic isFavorite;
 @dynamic lat;
 @dynamic lon;
+@dynamic name;
 @dynamic unique;
 @dynamic cards;
 

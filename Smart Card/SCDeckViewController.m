@@ -7,8 +7,8 @@
 //
 
 #import "SCDeckViewController.h"
-
-@interface SCDeckViewController ()
+#import "SCDeckManager.h"
+@interface SCDeckViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *favoriteSegmentControl;
 
 
@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.nameTextField.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -41,4 +42,14 @@
 }
 */
 
+- (IBAction)saveButtonPressed:(id)sender {
+    
+    [SCDeckManager addDeckWithName:self.nameTextField.text intoManagedObjectContext:self.context];
+}
+
+#pragma Mark - Text View Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 @end

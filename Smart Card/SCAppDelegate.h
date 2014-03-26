@@ -12,11 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-//Core data Functions and properties
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSManagedObjectContext *cardDatabaseContext;
 
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
 @end

@@ -10,4 +10,5 @@
 
 @interface SCDeckViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong ,nonatomic) NSManagedObjectContext *context;
 @end

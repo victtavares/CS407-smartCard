@@ -13,10 +13,10 @@
 
 @interface Deck : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSSet *cards;
 @end
