@@ -19,7 +19,7 @@
 }
 
 
-+ (void) addDeckWithName:(NSString *) name isFavorite:(BOOL) status withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
++ (void) addDeckWithName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
     intoManagedObjectContext:(NSManagedObjectContext *) context{
     
     //name = blank
@@ -35,7 +35,6 @@
         } else {
             Deck *deck = [NSEntityDescription insertNewObjectForEntityForName:@"Deck" inManagedObjectContext:context];
             deck.name = name;
-            deck.isFavorite = [NSNumber numberWithBool:YES];
             deck.lat = lat;
             deck.lon = lon;
             deck.cards = [[NSSet alloc] initWithArray:cards];

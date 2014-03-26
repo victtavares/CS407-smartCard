@@ -13,7 +13,6 @@
 
 @interface Deck : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
 @property (nonatomic, retain) NSString * name;

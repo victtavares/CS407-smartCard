@@ -25,13 +25,6 @@
 - (void)setCardDatabaseContext:(NSManagedObjectContext *)cardDatabaseContext
 {
     _cardDatabaseContext = cardDatabaseContext;
-//
-//    NSDictionary *userInfo = self.cardDatabaseContext ? @{CardDatabaseAvailabilityContext : self.cardDatabaseContext } : nil;
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:CardDatabaseAvailabilityNotification
-//                                                        object:self
-//                                                      userInfo:userInfo];
-//     NSLog(@"foi no set %@",userInfo);
 }
 
 

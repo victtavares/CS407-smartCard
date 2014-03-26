@@ -48,6 +48,7 @@
     NSManagedObjectModel *managedObjectModel = [self createManagedObjectModel];
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MOC.sqlite"];
+    NSLog(@"%@",storeURL);
     
     NSError *error = nil;
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];

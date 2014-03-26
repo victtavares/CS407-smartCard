@@ -12,7 +12,6 @@
 
 @implementation Deck
 
-@dynamic isFavorite;
 @dynamic lat;
 @dynamic lon;
 @dynamic name;

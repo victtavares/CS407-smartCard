@@ -37,9 +37,10 @@
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     _managedObjectContext = managedObjectContext;
-    
+    //Getting all the decks,predicate = nil
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
     request.predicate = nil;
+    //Put the deck in alphabetical Order
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name"
                                                               ascending:YES
                                                                selector:@selector(localizedStandardCompare:)]];

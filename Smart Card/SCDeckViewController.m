@@ -14,7 +14,7 @@
 
 
 @interface SCDeckViewController ()
-@property (weak, nonatomic) IBOutlet UISwitch *favoriteSwitch;
+
 
 //Make some comment
 
@@ -52,7 +52,7 @@
     
     NSMutableArray *cards = [[NSMutableArray alloc] init];
     
-    [Deck addDeckWithName:self.nameTextField.text isFavorite:self.favoriteSwitch.isOn withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.context];
+    [Deck addDeckWithName:self.nameTextField.text  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.context];
 }
 
 #pragma Mark - Text View Delegate
