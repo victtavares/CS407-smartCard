@@ -13,10 +13,10 @@
 
 @interface Card : NSManagedObject
 
-@property (nonatomic, retain) NSData * contentA;
+@property (nonatomic, retain) NSString * contentA;
 @property (nonatomic, retain) NSString * contentB;
 @property (nonatomic, retain) NSData * imageA;
-@property (nonatomic, retain) NSString * imageB;
+@property (nonatomic, retain) NSData * imageB;
 @property (nonatomic, retain) Deck *deckOwnsMe;
 
 @end

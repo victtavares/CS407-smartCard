@@ -37,7 +37,9 @@
             deck.name = name;
             deck.lat = lat;
             deck.lon = lon;
+            deck.nameInitial = [name substringWithRange:NSMakeRange(0, 1)].uppercaseString;
             deck.cards = [[NSSet alloc] initWithArray:cards];
+            
             [self saveChangesWithContext:context];
             //Show message here telling the sucess of the adding
         }

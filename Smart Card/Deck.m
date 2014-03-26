@@ -15,6 +15,7 @@
 @dynamic lat;
 @dynamic lon;
 @dynamic name;
+@dynamic nameInitial;
 @dynamic cards;
 
 @end

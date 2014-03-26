@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * nameInitial;
 @property (nonatomic, retain) NSSet *cards;
 @end
 

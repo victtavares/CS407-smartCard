@@ -9,7 +9,7 @@
 #import "SCDeckListViewController.h"
 #import "SCDeckViewController.h"
 #import "SCAppDelegate.h"
-#import "Deck.h"
+#import "Deck+CRUD.h"
 
 @interface SCDeckListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *originalTableView;
@@ -49,7 +49,7 @@
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:managedObjectContext
-                                                                          sectionNameKeyPath:nil
+                                                                          sectionNameKeyPath:@"nameInitial"
                                                                                    cacheName:nil];
 }
 
@@ -78,15 +78,28 @@
  
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.destinationViewController isKindOfClass:[SCDeckViewController class]] ) {
-        SCDeckViewController *dvc = (SCDeckViewController *) segue.destinationViewController;
-        
-        dvc.context = self.managedObjectContext;
-    }
+//    if([segue.destinationViewController isKindOfClass:[SCDeckViewController class]] ) {
+//        SCDeckViewController *dvc = (SCDeckViewController *) segue.destinationViewController;
+//        
+//        dvc.context = self.managedObjectContext;
+//    }
     
 }
 
+- (IBAction)addDeckButtonPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"New Deck" message:@"Enter a name for this Deck"
+                                                  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    if (buttonIndex == 1) {
+            NSString *inputText = [[alertView textFieldAtIndex:0] text];
+            [Deck addDeckWithName:inputText  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.managedObjectContext];
+    }
+}
 
 
 

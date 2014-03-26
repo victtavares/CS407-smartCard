@@ -8,8 +8,9 @@
 
 #import "SCDeckViewController.h"
 #import "Deck+CRUD.h"
+#import "SCCardViewController.h"
 @interface SCDeckViewController () <UITextFieldDelegate>
-
+@property (strong,nonatomic) NSMutableArray *cards;
 @end
 
 
@@ -37,22 +38,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+////    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
+////        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
+////    
+////        cvc.cards  = self.cards;
+//    }
+    
 }
-*/
 
 - (IBAction)saveButtonPressed:(id)sender {
     
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
     
-    [Deck addDeckWithName:self.nameTextField.text  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.context];
 }
 
 #pragma Mark - Text View Delegate
