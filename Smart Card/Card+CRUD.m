@@ -30,7 +30,6 @@ intoManagedObjectContext:(NSManagedObjectContext *) context{
         card.deckOwnsMe = deck;
             
         [self saveChangesWithContext:context];
-            //Show message here telling the sucess of the adding
         
     }
 }

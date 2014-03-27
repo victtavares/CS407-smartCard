@@ -20,84 +20,86 @@
 
 @implementation SCCardViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-//
-//
-//
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    
-//    // Do any additional setup after loading the view.
-//}
-//
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//#pragma Mark - Aux Functions
-//- (void) setSideA {
-//    self.sideLabel.text = @"Side A";
-//    self.isSideA = YES;
-//}
-//
-//- (void) setSideB {
-//    self.sideLabel.text = @"Side B";
-//    self.isSideA = NO;
-//}
-//
-//-(void) clearHistory {
-//    self.cardTextView.text = nil;
-//    self.sideBText = nil;
-//    self.sideAText = nil;
-//}
-//
-//#pragma Mark - Button Pressed
-////Side A and click Save nothing is gonna save!
-//- (IBAction)saveButtonPressed:(id)sender {
-//    if (!self.isSideA) {
-//    	self.sideBText = _cardTextView.text;
-//	}
-//    
-//    //[Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
-//
-//}
-//
-//- (IBAction)makeAnotherCardButtonPressed:(id)sender {
-//}
-//
-//- (IBAction)FlipButtonPressed:(id)sender {
-//    if (self.isSideA) {
-//    	self.sideAText = _cardTextView.text;
-//    	self.cardTextView.text = self.sideBText;
-//    	[self setSideB];
-//	} else {
-//    	self.sideBText = _cardTextView.text;
-//    	self.cardTextView.text =_sideAText;
-//    	[self setSideA];
-//	}
-//    
-//}
-//
-//
-///*
-//#pragma mark - Navigation
-//
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
-//*/
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma Mark - Button Pressed
+//Side A and click Save nothing is gonna save!
+- (IBAction)saveButtonPressed:(id)sender {
+    if (!self.isSideA) {
+    	self.sideBText = self.cardTextView.text;
+	}
+    
+    [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
+    
+}
+
+- (IBAction)makeAnotherCardButtonPressed:(id)sender {
+}
+
+- (IBAction)FlipButtonPressed:(id)sender {
+    if (self.isSideA) {
+    	self.sideAText = _cardTextView.text;
+    	self.cardTextView.text = self.sideBText;
+    	[self setSideB];
+	} else {
+    	self.sideBText = _cardTextView.text;
+    	self.cardTextView.text =_sideAText;
+    	[self setSideA];
+	}
+    
+}
+
+#pragma Mark - Aux Functions
+- (void) setSideA {
+    self.sideLabel.text = @"Side A";
+    self.isSideA = YES;
+}
+
+- (void) setSideB {
+    self.sideLabel.text = @"Side B";
+    self.isSideA = NO;
+}
+
+-(void) clearHistory {
+    self.cardTextView.text = nil;
+    self.sideBText = nil;
+    self.sideAText = nil;
+}
+
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

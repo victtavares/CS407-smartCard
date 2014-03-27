@@ -7,12 +7,13 @@
 //
 
 #import "SCDeckListViewController.h"
-#import "SCDeckViewController.h"
+#import "SCCardViewController.h"
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
 
 @interface SCDeckListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *originalTableView;
+@property (strong,nonatomic) Deck *selectedDeck;
 
 
 @end
@@ -70,6 +71,21 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.selectedDeck = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if([[self.selectedDeck cards] count]) {
+        [self performSegueWithIdentifier:@"goShowCards" sender:self];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Empty Deck" message:@"Would you like to add cards?"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
+
+
 
 
 #pragma mark - Navigation
@@ -78,14 +94,15 @@
  
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if([segue.destinationViewController isKindOfClass:[SCDeckViewController class]] ) {
-//        SCDeckViewController *dvc = (SCDeckViewController *) segue.destinationViewController;
-//        
-//        dvc.context = self.managedObjectContext;
-//    }
+    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
+        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
+        
+        cvc.deck = self.selectedDeck;
+    }
     
 }
 
+#pragma mark - Button Pressed
 - (IBAction)addDeckButtonPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"New Deck" message:@"Enter a name for this Deck"
                                                   delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil];
@@ -93,11 +110,20 @@
     [alert show];
 }
 
+#pragma mark - alert View Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
-    if (buttonIndex == 1) {
+    //If is the empty Deck Alert
+    if ([alertView.title isEqualToString:@"Empty Deck"] && buttonIndex == 1) {
+        [self performSegueWithIdentifier:@"addNewCard" sender:self];
+    }
+    
+    //If its the new Deck alert
+    if ([alertView.title isEqualToString:@"New Deck"]) {
+        NSMutableArray *cards = [[NSMutableArray alloc] init];
+        if (buttonIndex == 1) {
             NSString *inputText = [[alertView textFieldAtIndex:0] text];
             [Deck addDeckWithName:inputText  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.managedObjectContext];
+        }
     }
 }
 

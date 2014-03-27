@@ -96,9 +96,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="UQC-bx-SJW" kind="push" id="pK7-5N-22q"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -118,11 +115,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="originalTableView" destination="Gi7-GC-TTc" id="B19-V0-UPn"/>
+                        <segue destination="UQC-bx-SJW" kind="push" identifier="goShowCards" id="yes-03-v88"/>
+                        <segue destination="bd0-Xb-kgm" kind="push" identifier="addNewCard" id="x2o-KJ-lZE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTq-UH-jj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="-74"/>
+            <point key="canvasLocation" x="888" y="-56"/>
         </scene>
         <!--View Controller - Deck 1-->
         <scene sceneID="V3B-pX-iD3">
@@ -263,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMG-BQ-Zig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="570"/>
+            <point key="canvasLocation" x="2173" y="-106"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="wVn-IU-ZEO">
@@ -332,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81n-Ec-UMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="-90"/>
+            <point key="canvasLocation" x="1859" y="586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JNI-Wj-Auv">

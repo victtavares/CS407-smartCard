@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "Deck.h"
 @interface SCCardViewController : UIViewController <UIAlertViewDelegate>
-@property (strong,nonatomic) NSMutableArray *cards;
+@property (strong,nonatomic) Deck *deck;
 @end
