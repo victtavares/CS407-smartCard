@@ -7,33 +7,82 @@
 //
 
 #import "SCShowCardsViewController.h"
+#import "Card.h"
 
 @interface SCShowCardsViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (strong,nonatomic) NSArray *cards;
+@property (nonatomic) int currentCardIndex;
+@property (nonatomic) BOOL displaySideA;
 @end
 
 @implementation SCShowCardsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self initialSetup];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(void) initialSetup {
+    self.cards = [[self.deck cards] allObjects];
+    Card *card = [self.cards objectAtIndex:0];
+    self.contentTextView.text = card.contentA;
+    self.displaySideA = TRUE;
+    
 }
+
+- (IBAction)nextButtonPressed:(id)sender {
+	self.currentCardIndex++;
+    Card *card;
+    
+	if (self.currentCardIndex < [self.cards count]) {
+    	card = [self.cards objectAtIndex:self.currentCardIndex];
+    	self.contentTextView.text = card.contentA;
+	} else {
+    	self.currentCardIndex = 0;
+    	card = [self.cards objectAtIndex:self.currentCardIndex];
+    	self.contentTextView.text = card.contentA;
+	}
+	self.displaySideA = YES;
+}
+
+
+- (IBAction)previousButtonPressed:(id)sender {
+    self.currentCardIndex--;
+    Card *card;
+	if (self.currentCardIndex >= 0) {
+    	card = [self.cards objectAtIndex:self.currentCardIndex];
+    	self.contentTextView.text = card.contentA;
+        
+	} else {
+    	self.currentCardIndex = [_deck.cards count]-1;
+    	card = [self.cards objectAtIndex:self.currentCardIndex];
+    	self.contentTextView.text = card.contentA;
+	}
+    
+	self.displaySideA = YES;
+}
+
+- (IBAction)flipButtonPressed:(id)sender {
+    Card *card = [self.cards objectAtIndex:self.currentCardIndex];
+    
+	if (self.displaySideA) {
+    	self.contentTextView.text = card.contentB;
+    	self.displaySideA = NO;
+	} else {
+    	self.contentTextView.text = card.contentA;
+    	self.displaySideA = YES;
+	}
+}
+
+
+
 
 /*
 #pragma mark - Navigation

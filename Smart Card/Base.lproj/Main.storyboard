@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YcD-QY-C3x" kind="push" id="7F6-qW-3Kk"/>
+                                    <segue destination="YcD-QY-C3x" kind="push" identifier="goDecks" id="7F6-qW-3Kk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dst-Uc-mbM">
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="888" y="-56"/>
         </scene>
-        <!--View Controller - Deck 1-->
+        <!--Show Cards View Controller - Deck 1-->
         <scene sceneID="V3B-pX-iD3">
             <objects>
-                <viewController id="UQC-bx-SJW" sceneMemberID="viewController">
+                <viewController id="UQC-bx-SJW" customClass="SCShowCardsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h1e-ps-S1E"/>
                         <viewControllerLayoutGuide type="bottom" id="Mdc-bc-eq2"/>
@@ -135,18 +135,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here come the text of the Card,it can be o maximum of 4 lines" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="uNH-Ap-sjv">
-                                <rect key="frame" x="47" y="123" width="237" height="173"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yw-oh-oDp">
-                                <rect key="frame" x="136" y="336" width="48" height="30"/>
+                                <rect key="frame" x="149" y="336" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Shuffle">
+                                <state key="normal" title="Flip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="Z9E-Yw-Jha"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np3-E6-V9z">
                                 <rect key="frame" x="254" y="336" width="30" height="30"/>
@@ -154,6 +151,9 @@
                                 <state key="normal" title="-->">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="aRr-Cr-Wpg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-yI-uzF">
                                 <rect key="frame" x="47" y="336" width="30" height="30"/>
@@ -161,6 +161,9 @@
                                 <state key="normal" title="&lt;--">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="previousButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="Mfs-Uf-ct2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-ZB-q0e">
                                 <rect key="frame" x="39" y="430" width="30" height="30"/>
@@ -179,16 +182,26 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Here come text of the application." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
+                                <rect key="frame" x="44" y="95" width="240" height="224"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Deck 1" id="uEb-bs-Hup">
                         <barButtonItem key="rightBarButtonItem" title="Manage" id="tTj-wS-nnR">
                             <connections>
-                                <segue destination="Ley-Xj-Ish" kind="push" id="nPL-6o-ePw"/>
+                                <segue destination="Ley-Xj-Ish" kind="push" identifier="goShowCards" id="nPL-6o-ePw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="5Nm-du-Zch" id="joA-eh-fne"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99Z-Ba-H4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,23 +314,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9Q-a0-WIg">
-                                <rect key="frame" x="132" y="233" width="34" height="30"/>
+                                <rect key="frame" x="266" y="233" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="bd0-Xb-kgm" eventType="touchUpInside" id="TRS-0L-GOa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RH-pz-clL">
-                                <rect key="frame" x="218" y="233" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Another Card">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="makeAnotherCardButtonPressed:" destination="bd0-Xb-kgm" eventType="touchUpInside" id="jKZ-va-yrk"/>
                                 </connections>
                             </button>
                         </subviews>

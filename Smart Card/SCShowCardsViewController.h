@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Deck.h"
 @interface SCShowCardsViewController : UIViewController
-
+@property (strong,nonatomic) Deck *deck;
 @end

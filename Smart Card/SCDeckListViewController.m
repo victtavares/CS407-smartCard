@@ -10,6 +10,7 @@
 #import "SCCardViewController.h"
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
+#import"SCShowCardsViewController.h"
 
 @interface SCDeckListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *originalTableView;
@@ -100,6 +101,12 @@
         cvc.deck = self.selectedDeck;
     }
     
+    if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]] ) {
+        SCShowCardsViewController *csvc = (SCShowCardsViewController *) segue.destinationViewController;
+        
+        csvc.deck = self.selectedDeck;
+    }
+    
 }
 
 #pragma mark - Button Pressed
@@ -112,7 +119,7 @@
 
 #pragma mark - alert View Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //If is the empty Deck Alert
+    //If its the empty Deck Alert
     if ([alertView.title isEqualToString:@"Empty Deck"] && buttonIndex == 1) {
         [self performSegueWithIdentifier:@"addNewCard" sender:self];
     }

@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setSideA];
     
     // Do any additional setup after loading the view.
 }
@@ -52,11 +53,13 @@
 	}
     
     [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
+    //If the card is saved!
+    [self clearHistory];
+    [self setSideA];
     
 }
 
-- (IBAction)makeAnotherCardButtonPressed:(id)sender {
-}
+
 
 - (IBAction)FlipButtonPressed:(id)sender {
     if (self.isSideA) {
