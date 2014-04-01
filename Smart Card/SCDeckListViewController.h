@@ -10,6 +10,6 @@
 #import "SCCoreDataViewController.h"
 
 
-@interface SCDeckListViewController : SCCoreDataViewController <UITableViewDelegate>
+@interface SCDeckListViewController : SCCoreDataViewController <UITableViewDelegate,UIAlertViewDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

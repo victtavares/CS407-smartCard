@@ -52,10 +52,16 @@
     	self.sideBText = self.cardTextView.text;
 	}
     
-    [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
+    BOOL isAdd = [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
+    if (isAdd) {
     //If the card is saved!
     [self clearHistory];
     [self setSideA];
+    }else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Blank Field" message:@"The card could not be added,one of the fields are blank!"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }
     
 }
 

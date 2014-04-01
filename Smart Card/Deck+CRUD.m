@@ -19,20 +19,18 @@
 }
 
 
-+ (void) addDeckWithName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
++ (BOOL) addDeckWithName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
     intoManagedObjectContext:(NSManagedObjectContext *) context{
     
-    //name = blank
+
     if ([name length]) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
-        request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+        request.predicate = [NSPredicate predicateWithFormat:@"name = [c] %@", name]; // not case sentitive query
         
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];
         
-        if ([matches count]) {
-            //Show message here telling the user that user already exists
-        } else {
+        if (![matches count]) {
             Deck *deck = [NSEntityDescription insertNewObjectForEntityForName:@"Deck" inManagedObjectContext:context];
             deck.name = name;
             deck.lat = lat;
@@ -41,15 +39,14 @@
             deck.cards = [[NSSet alloc] initWithArray:cards];
             
             [self saveChangesWithContext:context];
-            //Show message here telling the sucess of the adding
+            return YES;
         }
 }
-    
-
-    
-    
-    
+    return NO;
 }
 
+
+    
+    
 
 @end

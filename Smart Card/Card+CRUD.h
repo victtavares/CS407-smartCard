@@ -9,6 +9,6 @@
 #import "Card.h"
 
 @interface Card (CRUD)
-+ (void) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
++ (BOOL) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
     intoManagedObjectContext:(NSManagedObjectContext *) context;
 @end

@@ -129,9 +129,23 @@
         NSMutableArray *cards = [[NSMutableArray alloc] init];
         if (buttonIndex == 1) {
             NSString *inputText = [[alertView textFieldAtIndex:0] text];
-            [Deck addDeckWithName:inputText  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.managedObjectContext];
+            bool isAdd = [Deck addDeckWithName:inputText  withLat:[NSNumber numberWithFloat:30.30] withLon:[NSNumber numberWithFloat:30.30] withCards:cards  intoManagedObjectContext:self.managedObjectContext];
+            if (!isAdd) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Duplicate Decks" message:@"Unable to add this deck,a deck with this name already exists!"
+                                                              delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                [alert show];
+            }
         }
     }
+}
+
+-(BOOL) alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    if ([alertView.title isEqualToString:@"New Deck"]) {
+        NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        if( [inputText length] != 0) return NO;
+        
+    }
+    return YES;
 }
 
 

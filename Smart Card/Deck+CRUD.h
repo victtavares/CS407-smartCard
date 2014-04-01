@@ -9,6 +9,6 @@
 #import "Deck.h"
 
 @interface Deck (CRUD)
-+ (void) addDeckWithName:(NSString *) name withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
++ (BOOL) addDeckWithName:(NSString *) name withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
     intoManagedObjectContext:(NSManagedObjectContext *) context;
 @end

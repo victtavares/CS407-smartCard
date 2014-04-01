@@ -19,7 +19,7 @@
 }
 
 
-+ (void) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
++ (BOOL) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
 intoManagedObjectContext:(NSManagedObjectContext *) context{
     
     //content != blank
@@ -30,8 +30,10 @@ intoManagedObjectContext:(NSManagedObjectContext *) context{
         card.deckOwnsMe = deck;
             
         [self saveChangesWithContext:context];
+        return YES;
         
     }
+    return NO;
 }
 
 
