@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck+CRUD.h"
 
 @interface SCDeckViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (strong ,nonatomic) NSManagedObjectContext *context;
+@property (strong,nonatomic) Deck *selectedDeck;
 @end

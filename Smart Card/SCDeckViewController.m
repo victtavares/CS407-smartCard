@@ -7,20 +7,13 @@
 //
 
 #import "SCDeckViewController.h"
-#import "Deck+CRUD.h"
 #import "SCCardViewController.h"
+
+
 @interface SCDeckViewController () <UITextFieldDelegate>
-@property (strong,nonatomic) NSMutableArray *cards;
+@property (weak, nonatomic) IBOutlet UITextField *deckNameTextField;
 @end
 
-
-@interface SCDeckViewController ()
-
-
-//Make some comment
-
-
-@end
 
 @implementation SCDeckViewController
 
@@ -28,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.nameTextField.delegate = self;
+    [self initialSetup];
     // Do any additional setup after loading the view.
 }
 
@@ -38,6 +31,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) initialSetup {
+    self.deckNameTextField.delegate = self;
+    self.deckNameTextField.text = self.selectedDeck.name;
+}
+
 
 #pragma mark - Navigation
 
@@ -45,20 +43,28 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-////    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
-////        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
-////    
-////        cvc.cards  = self.cards;
-//    }
-    
+    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
+        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
+        
+        cvc.deck = self.selectedDeck;
+    }
 }
 
+#pragma mark - Actions
 - (IBAction)saveButtonPressed:(id)sender {
-    
+    BOOL isEdit = [Deck editDeck:self.selectedDeck withName:self.deckNameTextField.text withLat:self.selectedDeck.lat withLon:self.selectedDeck.lon];
+    if (!isEdit) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Duplicate Decks" message:@"Unable to add this deck,a deck with this name already exists!"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }
     
 }
 
-#pragma Mark - Text View Delegate
+- (IBAction)addCardsButtonPressed:(id)sender {
+}
+
+#pragma mark - Text View Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;

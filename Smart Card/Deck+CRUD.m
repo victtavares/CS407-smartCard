@@ -19,24 +19,33 @@
 }
 
 
-+ (BOOL) addDeckWithName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon withCards:(NSMutableArray *) cards
-    intoManagedObjectContext:(NSManagedObjectContext *) context{
-    
++(NSArray *) searchDeckWithName:(NSString *) name withContext:(NSManagedObjectContext *) context{
 
-    if ([name length]) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
         request.predicate = [NSPredicate predicateWithFormat:@"name = [c] %@", name]; // not case sentitive query
         
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];
-        
+    
+        return matches;
+    
+}
+
+
++ (BOOL) addDeckWithName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon 
+    intoManagedObjectContext:(NSManagedObjectContext *) context{
+    
+
+    if ([name length]) {
+        NSArray *matches = [self searchDeckWithName:name withContext:context];
+        //if the name chosen is not already picked
         if (![matches count]) {
             Deck *deck = [NSEntityDescription insertNewObjectForEntityForName:@"Deck" inManagedObjectContext:context];
             deck.name = name;
             deck.lat = lat;
             deck.lon = lon;
             deck.nameInitial = [name substringWithRange:NSMakeRange(0, 1)].uppercaseString;
-            deck.cards = [[NSSet alloc] initWithArray:cards];
+            //deck.cards = [[NSSet alloc] initWithArray:cards];
             
             [self saveChangesWithContext:context];
             return YES;
@@ -45,8 +54,28 @@
     return NO;
 }
 
++(BOOL) editDeck:(Deck *) deck withName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon {
+    
+    if ([name length]) {
+        NSArray *matches = [self searchDeckWithName:name withContext:[deck managedObjectContext]];
+        //if the name chosen is not already picked
+        if (![matches count]) {
+            deck.name = name;
+            deck.lat = lat;
+            deck.lon = lon;
+            deck.nameInitial = [name substringWithRange:NSMakeRange(0, 1)].uppercaseString;
+            
+            [self saveChangesWithContext:[deck managedObjectContext]];
+            return YES;
+        }
+    }
+    return NO;
 
-    
-    
+
+}
+
+
+
+
 
 @end
