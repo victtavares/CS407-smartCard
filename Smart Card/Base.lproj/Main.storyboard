@@ -178,6 +178,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="dbZ-7g-R3b"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Here come text of the card." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
                                 <rect key="frame" x="44" y="95" width="240" height="224"/>

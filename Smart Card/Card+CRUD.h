@@ -11,4 +11,6 @@
 @interface Card (CRUD)
 + (BOOL) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
     intoManagedObjectContext:(NSManagedObjectContext *) context;
+
++(void)deleteCard:(Card *)cardToDelete;
 @end

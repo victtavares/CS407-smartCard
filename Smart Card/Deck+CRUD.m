@@ -15,7 +15,7 @@
     NSError *error;
     
     if (![context save:&error])
-        NSLog(@"SharedModel: ERROR saving deck: %@", [error localizedDescription]);
+        NSLog(@"ERROR:%@", [error localizedDescription]);
 }
 
 
@@ -72,6 +72,13 @@
     return NO;
 
 
+}
+
++(void)deleteDeck:(Deck *)deckToDelete {
+    NSManagedObjectContext *context = [deckToDelete managedObjectContext];
+	[context deleteObject:deckToDelete];
+    [self saveChangesWithContext:context];
+    
 }
 
 

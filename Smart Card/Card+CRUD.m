@@ -36,5 +36,11 @@ intoManagedObjectContext:(NSManagedObjectContext *) context{
     return NO;
 }
 
++(void)deleteCard:(Card *)cardToDelete {
+    NSManagedObjectContext *context = [cardToDelete managedObjectContext];
+	[context deleteObject:cardToDelete];
+    [self saveChangesWithContext:context];
+}
+
 
 @end

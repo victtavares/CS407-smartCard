@@ -138,6 +138,19 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+    	Deck *deckToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    	[Deck deleteDeck:deckToDelete];
+	}
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return nil;
+}
+
 -(BOOL) alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
     if ([alertView.title isEqualToString:@"New Deck"]) {
         NSString *inputText = [[alertView textFieldAtIndex:0] text];

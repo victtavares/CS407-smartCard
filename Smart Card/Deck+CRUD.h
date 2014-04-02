@@ -13,4 +13,7 @@
     intoManagedObjectContext:(NSManagedObjectContext *) context;
 
 +(BOOL) editDeck:(Deck *) deck withName:(NSString *) name  withLat:(NSNumber *) lat withLon:(NSNumber *) lon;
+
++ (void) deleteDeck:(Deck *)deckToDelete;
+
 @end

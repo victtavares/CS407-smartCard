@@ -7,12 +7,13 @@
 //
 
 #import "SCShowCardsViewController.h"
-#import "Card.h"
+#import "Card+CRUD.h"
 #import "SCDeckViewController.h"
+
 
 @interface SCShowCardsViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-@property (strong,nonatomic) NSArray *cards;
+@property (strong,nonatomic) NSMutableArray *cards;
 @property (nonatomic) int currentCardIndex;
 @property (nonatomic) BOOL displaySideA;
 @end
@@ -32,13 +33,14 @@
 
 -(void) initialSetup {
     self.title = self.deck.name;
-    self.cards = [[self.deck cards] allObjects];
+    self.cards = [[[self.deck cards] allObjects]mutableCopy];
     Card *card = [self.cards objectAtIndex:0];
     self.contentTextView.text = card.contentA;
     self.displaySideA = TRUE;
     
 }
 
+#pragma mark - Actions
 - (IBAction)nextButtonPressed:(id)sender {
 	self.currentCardIndex++;
     Card *card;
@@ -85,12 +87,19 @@
 
 
 
+- (IBAction)deleteButtonPressed:(id)sender {
+	if ([self.cards count]!=0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete Card" message:@"Do you want to delete this card?"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
 
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.destinationViewController isKindOfClass:[SCDeckViewController class]] ) {
         SCDeckViewController *dvc = (SCDeckViewController *) segue.destinationViewController;
@@ -100,7 +109,7 @@
 }
 
 
-
+#pragma mark - Modal actions
 
 - (IBAction)saveManageDeck:(UIStoryboardSegue *)segue {
     [self initialSetup];
@@ -111,5 +120,32 @@
     [self initialSetup];
    
 }
+
+
+#pragma mark - Alert View delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //If its the empty Deck Alert
+    if ([alertView.title isEqualToString:@"Delete Card"] && buttonIndex == 1) {
+        Card *cardToDelete = [self.cards objectAtIndex:self.currentCardIndex];
+        [Card deleteCard:cardToDelete];
+        
+    	[self.cards removeObjectAtIndex:self.currentCardIndex];
+        
+    	//prepare for calling nextButtonPressed
+    	self.currentCardIndex--;
+    	if (self.currentCardIndex<0) {
+        	self.currentCardIndex=[self.cards count]-1;
+    	}
+        
+        
+    	if ([self.cards count]==0) {
+        	self.contentTextView.text = @"The deck is empty.";
+    	} else {
+        	[self nextButtonPressed:nil];
+    	}
+	}
+}
+
 
 @end
