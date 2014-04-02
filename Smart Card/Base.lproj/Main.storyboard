@@ -116,7 +116,7 @@
                     <connections>
                         <outlet property="originalTableView" destination="Gi7-GC-TTc" id="B19-V0-UPn"/>
                         <segue destination="UQC-bx-SJW" kind="push" identifier="goShowCards" id="yes-03-v88"/>
-                        <segue destination="bd0-Xb-kgm" kind="push" identifier="addNewCard" id="x2o-KJ-lZE"/>
+                        <segue destination="bd0-Xb-kgm" kind="modal" identifier="addNewCard" id="x2o-KJ-lZE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTq-UH-jj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,9 +171,6 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="bd0-Xb-kgm" kind="push" id="gQ0-5S-EPu"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znO-CS-uCj">
                                 <rect key="frame" x="240" y="430" width="44" height="30"/>
@@ -182,7 +179,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Here come text of the application." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Here come text of the card." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
                                 <rect key="frame" x="44" y="95" width="240" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,7 +192,7 @@
                     <navigationItem key="navigationItem" title="Deck 1" id="uEb-bs-Hup">
                         <barButtonItem key="rightBarButtonItem" title="Manage" id="tTj-wS-nnR">
                             <connections>
-                                <segue destination="Ley-Xj-Ish" kind="push" identifier="goManageDeck" id="nPL-6o-ePw"/>
+                                <segue destination="Ley-Xj-Ish" kind="modal" identifier="goManageDeck" id="nPL-6o-ePw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -220,50 +217,59 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEO-B9-bfZ">
-                                <rect key="frame" x="15" y="94" width="95" height="21"/>
+                                <rect key="frame" x="20" y="67" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ni-rS-YSP">
-                                <rect key="frame" x="118" y="90" width="162" height="30"/>
+                                <rect key="frame" x="132" y="64" width="162" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-EP-gjV">
-                                <rect key="frame" x="4" y="146" width="117" height="36"/>
+                                <rect key="frame" x="12" y="109" width="117" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Cards">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addCardsButtonPressed:" destination="Ley-Xj-Ish" eventType="touchUpInside" id="aKb-hi-B7C"/>
-                                    <segue destination="bd0-Xb-kgm" kind="push" id="zbK-FJ-3Xt"/>
+                                    <segue destination="bd0-Xb-kgm" kind="modal" identifier="goAddCards" id="zbK-FJ-3Xt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-a8-1Hi">
-                                <rect key="frame" x="188" y="152" width="92" height="30"/>
+                                <rect key="frame" x="195" y="109" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMA-XZ-xqE">
-                                <rect key="frame" x="0.0" y="201" width="149" height="30"/>
+                                <rect key="frame" x="0.0" y="161" width="149" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Deck">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-Ax-Ioi">
-                                <rect key="frame" x="246" y="201" width="34" height="30"/>
+                                <rect key="frame" x="253" y="161" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveButtonPressed:" destination="Ley-Xj-Ish" eventType="touchUpInside" id="ccH-AL-6k9"/>
+                                    <segue destination="dOg-CY-MZZ" kind="unwind" identifier="saveUnwindSegue" unwindAction="saveManageDeck:" id="cHc-cZ-yPE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SF0-xF-rXJ">
+                                <rect key="frame" x="20" y="20" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dOg-CY-MZZ" kind="unwind" unwindAction="cancelManageDeck:" id="0T0-qN-gXk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -275,8 +281,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMG-BQ-Zig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dOg-CY-MZZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2173" y="-106"/>
+            <point key="canvasLocation" x="2167" y="-84"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="wVn-IU-ZEO">
@@ -324,6 +331,16 @@
                                     <action selector="saveButtonPressed:" destination="bd0-Xb-kgm" eventType="touchUpInside" id="TRS-0L-GOa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-e3-ous">
+                                <rect key="frame" x="259" y="26" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="bd0-Xb-kgm" eventType="touchUpInside" id="QHH-km-Mt0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -335,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81n-Ec-UMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1859" y="586"/>
+            <point key="canvasLocation" x="1985" y="670"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JNI-Wj-Auv">
@@ -362,6 +379,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zbK-FJ-3Xt"/>
+        <segue reference="x2o-KJ-lZE"/>
     </inferredMetricsTieBreakers>
 </document>

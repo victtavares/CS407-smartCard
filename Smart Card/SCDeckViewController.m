@@ -8,6 +8,7 @@
 
 #import "SCDeckViewController.h"
 #import "SCCardViewController.h"
+#import "SCShowCardsViewController.h"
 
 
 @interface SCDeckViewController () <UITextFieldDelegate>
@@ -48,21 +49,31 @@
         
         cvc.deck = self.selectedDeck;
     }
+    
+    //if the user clicks on the save Button
+    if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
+        SCShowCardsViewController *cvc = (SCShowCardsViewController *) segue.destinationViewController;
+        [self saveModifications];
+        cvc.deck = self.selectedDeck;
+    }
 }
 
-#pragma mark - Actions
-- (IBAction)saveButtonPressed:(id)sender {
+-(void) saveModifications {
     BOOL isEdit = [Deck editDeck:self.selectedDeck withName:self.deckNameTextField.text withLat:self.selectedDeck.lat withLon:self.selectedDeck.lon];
     if (!isEdit) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Duplicate Decks" message:@"Unable to add this deck,a deck with this name already exists!"
-                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sucess" message:@"Deck informations was updated!"
+                                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        
     }
-    
 }
 
-- (IBAction)addCardsButtonPressed:(id)sender {
-}
+
+
 
 #pragma mark - Text View Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

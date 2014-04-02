@@ -100,4 +100,16 @@
 }
 
 
+
+
+- (IBAction)saveManageDeck:(UIStoryboardSegue *)segue {
+    [self initialSetup];
+
+}
+
+- (IBAction)cancelManageDeck:(UIStoryboardSegue *)segue {
+    [self initialSetup];
+   
+}
+
 @end

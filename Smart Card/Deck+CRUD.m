@@ -58,8 +58,8 @@
     
     if ([name length]) {
         NSArray *matches = [self searchDeckWithName:name withContext:[deck managedObjectContext]];
-        //if the name chosen is not already picked
-        if (![matches count]) {
+        //if the name chosen is not already picked or the name is not modified
+        if (![matches count] || [deck.name isEqualToString:name]) {
             deck.name = name;
             deck.lat = lat;
             deck.lon = lon;
