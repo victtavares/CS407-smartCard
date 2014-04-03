@@ -113,15 +113,9 @@
             [alert show];
         }
     }
-    
-    
-    
-    
-    
 
 }
 
-//
 - (IBAction)nextButtonPressed:(id)sender {
 	self.currentCardIndex++;
     Card *card;
@@ -168,6 +162,14 @@
 
 }
 
+- (IBAction)deleteButtonPressed:(id)sender {
+	if ([self.cards count]!=0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete Card" message:@"Do you want to delete this card?"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
 #pragma Mark - Aux Functions
 - (void) setSideA {
     self.sideLabel.text = @"Side A";
@@ -177,18 +179,6 @@
 - (void) setSideB {
     self.sideLabel.text = @"Side B";
     self.isSideA = NO;
-}
-
-
-
-
-
-- (IBAction)deleteButtonPressed:(id)sender {
-	if ([self.cards count]!=0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete Card" message:@"Do you want to delete this card?"
-                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-        [alert show];
-    }
 }
 
 
@@ -216,7 +206,6 @@
     [self initialSetup];
    
 }
-
 
 #pragma mark - Alert View delegate
 
