@@ -46,7 +46,7 @@
 }
 
 #pragma Mark - Button Pressed
-//Side A and click Save nothing is gonna save!
+
 - (IBAction)saveButtonPressed:(id)sender {
     if (!self.isSideA) {
     	self.sideBText = self.cardTextView.text;
@@ -54,7 +54,6 @@
     
     BOOL isAdd = [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
     if (isAdd) {
-    //If the card is saved!
     [self clearHistory];
     [self setSideA];
     }else {

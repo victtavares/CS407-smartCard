@@ -13,4 +13,6 @@
     intoManagedObjectContext:(NSManagedObjectContext *) context;
 
 +(void)deleteCard:(Card *)cardToDelete;
+
++(BOOL) editCard:(Card *) card withContentA:(NSString *) contentA withContentB:(NSString *) contentB;
 @end

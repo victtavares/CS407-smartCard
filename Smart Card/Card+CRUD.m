@@ -43,4 +43,16 @@ intoManagedObjectContext:(NSManagedObjectContext *) context{
 }
 
 
++(BOOL) editCard:(Card *) card withContentA:(NSString *) contentA withContentB:(NSString *) contentB {
+    if ([contentA length] && [contentB length]) {
+        card.contentA = contentA;
+        card.contentB = contentB;
+        [self saveChangesWithContext:[card managedObjectContext]];
+        return YES;
+        
+    }
+    return NO;
+}
+
+
 @end
