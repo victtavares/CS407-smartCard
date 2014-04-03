@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E13645BB18E38A4B0019DB6E /* SCCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645BA18E38A4B0019DB6E /* SCCardViewController.m */; };
 		E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645BD18E38EEC0019DB6E /* Card+CRUD.m */; };
 		E13645C118E390660019DB6E /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C018E390660019DB6E /* Deck.m */; };
 		E13645C418E390670019DB6E /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C318E390670019DB6E /* Card.m */; };
@@ -45,8 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E13645B918E38A4B0019DB6E /* SCCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCardViewController.h; sourceTree = "<group>"; };
-		E13645BA18E38A4B0019DB6E /* SCCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCardViewController.m; sourceTree = "<group>"; };
 		E13645BC18E38EEC0019DB6E /* Card+CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+CRUD.h"; sourceTree = "<group>"; };
 		E13645BD18E38EEC0019DB6E /* Card+CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+CRUD.m"; sourceTree = "<group>"; };
 		E13645BF18E390660019DB6E /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
@@ -132,8 +129,6 @@
 			children = (
 				E13645C518E3925F0019DB6E /* SCShowCardsViewController.h */,
 				E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */,
-				E13645B918E38A4B0019DB6E /* SCCardViewController.h */,
-				E13645BA18E38A4B0019DB6E /* SCCardViewController.m */,
 				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
 				E1FA21C118D251B300989AFB /* SCDeckViewController.m */,
 				E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */,
@@ -327,7 +322,6 @@
 				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
-				E13645BB18E38A4B0019DB6E /* SCCardViewController.m in Sources */,
 				E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
 				E13645C418E390670019DB6E /* Card.m in Sources */,

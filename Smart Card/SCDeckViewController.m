@@ -7,7 +7,6 @@
 //
 
 #import "SCDeckViewController.h"
-#import "SCCardViewController.h"
 #import "SCShowCardsViewController.h"
 
 
@@ -44,12 +43,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
-        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
-        
-        cvc.deck = self.selectedDeck;
-    }
-    
     //if the user clicks on the save Button
     if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
         SCShowCardsViewController *cvc = (SCShowCardsViewController *) segue.destinationViewController;

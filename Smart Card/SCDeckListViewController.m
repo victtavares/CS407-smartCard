@@ -7,7 +7,7 @@
 //
 
 #import "SCDeckListViewController.h"
-#import "SCCardViewController.h"
+
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
 #import"SCShowCardsViewController.h"
@@ -75,14 +75,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     self.selectedDeck = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if([[self.selectedDeck cards] count]) {
-        [self performSegueWithIdentifier:@"goShowCards" sender:self];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Empty Deck" message:@"Would you like to add cards?"
-                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-        [alert show];
-    }
+    [self performSegueWithIdentifier:@"goShowCards" sender:self];
+
 }
 
 
@@ -95,11 +89,6 @@
  
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.destinationViewController isKindOfClass:[SCCardViewController class]] ) {
-        SCCardViewController *cvc = (SCCardViewController *) segue.destinationViewController;
-        
-        cvc.deck = self.selectedDeck;
-    }
     
     if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]] ) {
         SCShowCardsViewController *csvc = (SCShowCardsViewController *) segue.destinationViewController;
@@ -119,10 +108,6 @@
 
 #pragma mark - alert View Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //If its the empty Deck Alert
-    if ([alertView.title isEqualToString:@"Empty Deck"] && buttonIndex == 1) {
-        [self performSegueWithIdentifier:@"addNewCard" sender:self];
-    }
     
     //If its the new Deck alert
     if ([alertView.title isEqualToString:@"New Deck"]) {

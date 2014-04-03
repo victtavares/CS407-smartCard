@@ -49,10 +49,15 @@
 -(void) initialSetup {
     self.title = self.deck.name;
     self.cards = [[[self.deck cards] allObjects]mutableCopy];
-    Card *card = [self.cards objectAtIndex:0];
-    self.contentTextView.text = card.contentA;
-    self.sideAText = card.contentA;
-    self.sideBText = card.contentB;
+    
+    //if the deck is not empty
+    if ([self.cards count]) {
+        Card *card = [self.cards objectAtIndex:0];
+        self.contentTextView.text = card.contentA;
+        self.sideAText = card.contentA;
+        self.sideBText = card.contentB;
+    }
+    
     self.isSideA = TRUE;
     self.contentTextView.delegate = self;
 }
