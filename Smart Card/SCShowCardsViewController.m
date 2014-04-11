@@ -52,6 +52,8 @@
     self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -65,6 +67,8 @@
     self.title = self.deck.name;
     self.cards = [[[self.deck cards] allObjects]mutableCopy];
     
+    [self changeButtonStatus];
+    
     //if the deck is not empty
     if ([self.cards count]) {
         Card *card = [self.cards objectAtIndex:0];
@@ -76,8 +80,11 @@
         [self setSideA];
     } else {
         //No cards at deck no edit and delete is enabled
-        self.editButton.enabled = FALSE;
-        self.deleteButton.enabled = FALSE;
+//        self.editButton.enabled = FALSE;
+//        self.deleteButton.enabled = FALSE;
+//        self.nextButton.enabled = FALSE;
+//        self.previousButton.enabled = FALSE;
+//        self.flipButton.enabled = FALSE;
     }
     
     self.isSideA = TRUE;
@@ -101,6 +108,7 @@
         self.nextButton.hidden = YES;
         self.flipButton.hidden = YES;
         self.cameraButton.hidden = NO;
+        self.contentTextView.editable = YES;
         self.navigationItem.hidesBackButton = YES;
         self.navigationItem.leftBarButtonItem = self.cancelButton;
         
@@ -110,12 +118,8 @@
         if ((![self.contentTextView.text length]) && (!self.contentImageView.image)) self.editButton.enabled = NO;
         else  self.editButton.enabled = YES;
         
-        if (self.contentImageView.image) {
-            self.cancelImageButton.hidden = NO;
-        } else {
-            self.contentTextView.editable = YES;
-            //[self.contentTextView becomeFirstResponder];
-        }
+        if (self.contentImageView.image) self.cancelImageButton.hidden = NO;
+
     //Button save modifications pressed
     } else {
         Card *cardToEdit = [self.cards objectAtIndex:self.currentCardIndex];
@@ -131,6 +135,7 @@
         self.nextButton.hidden = NO;
         self.flipButton.hidden = NO;
         self.cameraButton.hidden = YES;
+        self.cancelImageButton.hidden = YES;
         
         [sender setTitle:@"Edit" forState:UIControlStateNormal];
         self.navigationItem.hidesBackButton = NO;
@@ -159,6 +164,7 @@
         self.previousButton.hidden = YES;
         self.nextButton.hidden = YES;
         self.cameraButton.hidden = NO;
+        self.flipButton.enabled = TRUE;
         
         self.navigationItem.hidesBackButton = YES;
         self.navigationItem.leftBarButtonItem = self.cancelButton;
@@ -190,6 +196,7 @@
             self.cards = [[[self.deck cards] allObjects]mutableCopy];
             [sender setTitle:@"New Card" forState:UIControlStateNormal];
             
+            [self changeButtonStatus];
         
             
         }else {
@@ -241,7 +248,7 @@
     
     self.sideAImage = [UIImage imageWithData:card.imageA];
     self.sideBImage = [UIImage imageWithData:card.imageB];
-    NSLog(@"Card Content A = %@ Card Content B = %@ card Image A = %i card Image B = %i",card.contentA,card.contentB,[card.imageA length],[card.imageB length]);
+    NSLog(@"Card Content A = %@ Card Content B = %@ card Image A = %i card Image B = %i card Index:%i",card.contentA,card.contentB,[card.imageA length],[card.imageB length],self.currentCardIndex);
     self.sideAText = card.contentA;
     self.sideBText = card.contentB;
     [self setSideA];
@@ -274,6 +281,7 @@
                                                       delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert show];
     }
+    
 }
 
 
@@ -298,7 +306,6 @@
 - (IBAction)cancelImageButtonPressed:(id)sender {
     self.contentImageView.image = nil;
     self.contentTextView.hidden = NO;
-    self.contentTextView.editable = NO;
     self.cancelImageButton.hidden = YES;
     
     if (self.isSideA) self.sideAImage = nil;
@@ -348,7 +355,8 @@
             [self setSideA];
         }
         else {
-            self.contentTextView.text = @"Your Deck is empty. Click \"New Card\" to add a new card.";
+            self.flipButton.enabled = FALSE;
+            self.contentTextView.text = @"Empty Deck!";
             
         }
     }
@@ -438,6 +446,24 @@
 }
 
 
+- (void) changeButtonStatus {
+    if ([self.cards count]) {
+        self.editButton.enabled = YES;
+        self.deleteButton.enabled = YES;
+        self.nextButton.enabled = YES;
+        self.previousButton.enabled = YES;
+        self.flipButton.enabled = YES;
+    } else {
+        self.editButton.enabled = FALSE;
+        self.deleteButton.enabled = FALSE;
+        self.nextButton.enabled = FALSE;
+        self.previousButton.enabled = FALSE;
+        self.flipButton.enabled = FALSE;
+    }
+    
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -474,17 +500,22 @@
     	[self.cards removeObjectAtIndex:self.currentCardIndex];
         
     	//prepare for calling nextButtonPressed
+        
     	self.currentCardIndex--;
     	if (self.currentCardIndex<0) {
         	self.currentCardIndex=[self.cards count]-1;
     	}
         
     	if ([self.cards count]==0) {
-        	self.contentTextView.text = @"The deck is empty.";
+        	self.contentTextView.text = @"Empty Deck!";
+            self.currentCardIndex = 0;
     	} else {
         	[self nextButtonPressed:nil];
     	}
+        [self changeButtonStatus];
 	}
+
+    
 }
 
 

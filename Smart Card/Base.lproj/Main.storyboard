@@ -188,12 +188,12 @@
                                 <rect key="frame" x="0.0" y="113" width="326" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" editable="NO" text="Your Deck is empty. Click &quot;New Card&quot; to add a new card." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
-                                <rect key="frame" x="0.0" y="106" width="320" height="179"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" editable="NO" text="Empty Deck!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
+                                <rect key="frame" x="0.0" y="113" width="320" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eam-rx-9NH">
@@ -241,7 +241,7 @@
                                 <action selector="cancelButtonPressed:" destination="UQC-bx-SJW" id="wEc-G3-9H9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Manage" id="tTj-wS-nnR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="tTj-wS-nnR">
                             <connections>
                                 <segue destination="Ley-Xj-Ish" kind="modal" identifier="goManageDeck" id="nPL-6o-ePw"/>
                             </connections>
