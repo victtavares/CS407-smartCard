@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Smart Card-->
+        <!--View Controller - SmartCard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Smart Card" id="oUm-SS-H9K"/>
+                    <navigationItem key="navigationItem" title="SmartCard" id="oUm-SS-H9K"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yw-oh-oDp">
-                                <rect key="frame" x="149" y="336" width="30" height="30"/>
+                                <rect key="frame" x="143" y="306" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Flip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,7 +145,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np3-E6-V9z">
-                                <rect key="frame" x="254" y="336" width="30" height="30"/>
+                                <rect key="frame" x="248" y="306" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-->">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-yI-uzF">
-                                <rect key="frame" x="47" y="336" width="30" height="30"/>
+                                <rect key="frame" x="41" y="306" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt;--">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,7 +165,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-ZB-q0e">
-                                <rect key="frame" x="26" y="428" width="76" height="32"/>
+                                <rect key="frame" x="6" y="400" width="167" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,7 +175,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znO-CS-uCj">
-                                <rect key="frame" x="240" y="430" width="44" height="30"/>
+                                <rect key="frame" x="220" y="400" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,11 +185,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TK6-SY-alI">
-                                <rect key="frame" x="0.0" y="65" width="326" height="263"/>
+                                <rect key="frame" x="0.0" y="113" width="326" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" editable="NO" text="Your Deck is empty. Click &quot;New Card&quot; to add a new card." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-du-Zch">
-                                <rect key="frame" x="0.0" y="65" width="320" height="263"/>
+                                <rect key="frame" x="0.0" y="106" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -197,7 +197,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eam-rx-9NH">
-                                <rect key="frame" x="126" y="381" width="79" height="30"/>
+                                <rect key="frame" x="120" y="351" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,26 +206,41 @@
                                     <action selector="newCardButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="rte-Uf-hGf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8R-nR-QzT">
-                                <rect key="frame" x="240" y="289" width="54" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8R-nR-QzT">
+                                <rect key="frame" x="254" y="71" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                 <state key="normal" title="Camera">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="Fl0-U1-UCt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Side  A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbS-2p-zBx">
-                                <rect key="frame" x="7" y="293" width="62" height="21"/>
+                                <rect key="frame" x="15" y="77" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-1r-411">
+                                <rect key="frame" x="8" y="113" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="button_cancel"/>
+                                <connections>
+                                    <action selector="cancelImageButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="aO5-Ye-XOo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Deck 1" id="uEb-bs-Hup">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ag6-KW-3iD">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="UQC-bx-SJW" id="wEc-G3-9H9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Manage" id="tTj-wS-nnR">
                             <connections>
                                 <segue destination="Ley-Xj-Ish" kind="modal" identifier="goManageDeck" id="nPL-6o-ePw"/>
@@ -233,10 +248,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cameraButton" destination="Q8R-nR-QzT" id="QTh-s6-FUe"/>
+                        <outlet property="cameraButton" destination="Q8R-nR-QzT" id="3yc-YP-wC0"/>
+                        <outlet property="cancelImageButton" destination="HoN-1r-411" id="5ST-TS-c5F"/>
+                        <outlet property="contentImageView" destination="TK6-SY-alI" id="bw2-qO-eoi"/>
                         <outlet property="contentTextView" destination="5Nm-du-Zch" id="joA-eh-fne"/>
+                        <outlet property="createCardButton" destination="eam-rx-9NH" id="gZm-bL-tCy"/>
                         <outlet property="deleteButton" destination="znO-CS-uCj" id="JaF-Co-Wa6"/>
-                        <outlet property="editButton" destination="BR4-ZB-q0e" id="n3B-OE-ldy"/>
+                        <outlet property="editButton" destination="BR4-ZB-q0e" id="2KO-Mb-GwE"/>
+                        <outlet property="flipButton" destination="9yw-oh-oDp" id="euP-ay-8Ci"/>
                         <outlet property="nextButton" destination="np3-E6-V9z" id="gvH-kL-VM7"/>
                         <outlet property="previousButton" destination="HRe-yI-uzF" id="LuW-KO-HWB"/>
                         <outlet property="sideLabel" destination="KbS-2p-zBx" id="6rR-Tz-f3S"/>
@@ -327,6 +346,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jDH-jO-ZIL">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="abP-O8-rfR"/>
                     </connections>
@@ -336,6 +359,9 @@
             <point key="canvasLocation" x="-81" y="-74"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_cancel" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

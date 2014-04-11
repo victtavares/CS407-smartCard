@@ -9,10 +9,12 @@
 #import "SCShowCardsViewController.h"
 #import "Card+CRUD.h"
 #import "SCDeckViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 
-@interface SCShowCardsViewController () <UITextViewDelegate>
+@interface SCShowCardsViewController () <UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sideLabel;
 
 @property (strong,nonatomic) NSMutableArray *cards;
@@ -20,12 +22,18 @@
 
 @property (strong,nonatomic) NSString *sideAText;
 @property (strong,nonatomic) NSString *sideBText;
+@property (strong,nonatomic) UIImage *sideAImage;
+@property (strong,nonatomic) UIImage *sideBImage;
+
 @property (nonatomic) BOOL isSideA;
 
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isSavingNewCard;
 
-
+@property (strong, nonatomic) UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *createCardButton;
+@property (weak, nonatomic) IBOutlet UIButton *flipButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
@@ -36,6 +44,13 @@
 @implementation SCShowCardsViewController
 
 
+
+-(void) viewWillAppear:(BOOL)animated {
+    //putting the back Button
+    [super viewWillAppear:YES];
+    self.cancelButton = self.navigationItem.leftBarButtonItem;
+    self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+}
 
 - (void)viewDidLoad
 {
@@ -56,10 +71,18 @@
         self.contentTextView.text = card.contentA;
         self.sideAText = card.contentA;
         self.sideBText = card.contentB;
+        self.sideAImage = [UIImage imageWithData:card.imageA];
+        self.sideBImage = [UIImage imageWithData:card.imageB];
+        [self setSideA];
+    } else {
+        //No cards at deck no edit and delete is enabled
+        self.editButton.enabled = FALSE;
+        self.deleteButton.enabled = FALSE;
     }
     
     self.isSideA = TRUE;
     self.contentTextView.delegate = self;
+
 }
 
 
@@ -67,45 +90,107 @@
 #pragma mark - Actions
 
 - (IBAction)editButtonPressed:(id)sender {
-    
-    self.contentTextView.editable = YES;
-    self.isEditing = TRUE;
-    [self.contentTextView becomeFirstResponder];
+    //Button = edit
+    if (!self.isEditing) {
+        self.isEditing = TRUE;
+        
+        //Hidding  or showing the Buttons
+        self.deleteButton.hidden = YES;
+        self.createCardButton.hidden = YES;
+        self.previousButton.hidden = YES;
+        self.nextButton.hidden = YES;
+        self.flipButton.hidden = YES;
+        self.cameraButton.hidden = NO;
+        self.navigationItem.hidesBackButton = YES;
+        self.navigationItem.leftBarButtonItem = self.cancelButton;
+        
+        [sender setTitle:@"Save Modifications" forState:UIControlStateNormal];
+        
+        //If there is no text and no image, doesn't allow the user to save the changes
+        if ((![self.contentTextView.text length]) && (!self.contentImageView.image)) self.editButton.enabled = NO;
+        else  self.editButton.enabled = YES;
+        
+        if (self.contentImageView.image) {
+            self.cancelImageButton.hidden = NO;
+        } else {
+            self.contentTextView.editable = YES;
+            //[self.contentTextView becomeFirstResponder];
+        }
+    //Button save modifications pressed
+    } else {
+        Card *cardToEdit = [self.cards objectAtIndex:self.currentCardIndex];
+        [Card editCard:cardToEdit withContentA:self.sideAText withContentB:self.sideBText withImageA:self.sideAImage withImageB:self.sideBImage];
+        
+        self.contentTextView.editable = false;
+        self.isEditing = false;
+
+        //Hidding  or showing the Buttons
+        self.deleteButton.hidden = NO;
+        self.createCardButton.hidden = NO;
+        self.previousButton.hidden = NO;
+        self.nextButton.hidden = NO;
+        self.flipButton.hidden = NO;
+        self.cameraButton.hidden = YES;
+        
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        self.navigationItem.hidesBackButton = NO;
+        self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+        
+        
+    }
 }
 
 - (IBAction)newCardButtonPressed:(id)sender {
     //Button tittle = New Card
     if (!self.isSavingNewCard) {
+        self.isSavingNewCard = TRUE;
         self.contentTextView.editable = YES;
         self.contentTextView.text = nil;
+        self.contentImageView.image = nil;
         self.sideBText = nil;
         self.sideAText = nil;
+        self.sideAImage = nil;
+        self.sideBImage = nil;
         [self setSideA];
         
-        //Hidding the Buttons
+        //Hidding  or showing the Buttons
         self.deleteButton.hidden = YES;
         self.editButton.hidden = YES;
         self.previousButton.hidden = YES;
         self.nextButton.hidden = YES;
+        self.cameraButton.hidden = NO;
+        
+        self.navigationItem.hidesBackButton = YES;
+        self.navigationItem.leftBarButtonItem = self.cancelButton;
         
         [sender setTitle:@"Save Card" forState:UIControlStateNormal];
-        self.isSavingNewCard = TRUE;
         
-    //Button tittle = save Card
     } else {
+      BOOL isAdded = [Card addCardWithContentA:self.sideAText inContentB:self.sideBText withImageA:self.sideAImage withImageB:self.sideBImage ImageinDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
+
         
-        BOOL isAdd = [Card addCardWithContentA:self.sideAText inContentB:self.sideBText inDeck:self.deck intoManagedObjectContext:[self.deck managedObjectContext]];
-        if (isAdd) {
+        if (isAdded) {
             self.deleteButton.hidden = NO;
             self.editButton.hidden = NO;
             self.previousButton.hidden = NO;
             self.nextButton.hidden = NO;
-            
+            self.cancelImageButton.hidden = YES;
+            self.cameraButton.hidden = YES;
+            self.contentTextView.editable = FALSE;
             self.isSavingNewCard = false;
+            
+            //Now the deck have at least 1 Card,so enable this buttons
+            self.editButton.enabled = TRUE;
+            self.deleteButton.enabled = TRUE;
+            
+            self.navigationItem.hidesBackButton = NO;
+            self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
             
             //Getting the deck with the recently added Card
             self.cards = [[[self.deck cards] allObjects]mutableCopy];
             [sender setTitle:@"New Card" forState:UIControlStateNormal];
+            
+        
             
         }else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Blank Field" message:@"The card could not be added,one of the fields are blank!"
@@ -127,10 +212,18 @@
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
     
-    self.contentTextView.text = card.contentA;
+    if (card.imageA) self.contentImageView.image = [UIImage imageWithData:card.imageA];
+    else self.contentTextView.text = card.contentA;
+        
+    self.sideAImage = [UIImage imageWithData:card.imageA];
+    self.sideBImage = [UIImage imageWithData:card.imageB];
     self.sideAText = card.contentA;
     self.sideBText = card.contentB;
-	[self setSideA];
+    [self setSideA];
+    
+    if (self.isEditing) {
+        self.cancelImageButton.hidden = YES;
+    }
 }
 
 - (IBAction)previousButtonPressed:(id)sender {
@@ -143,23 +236,36 @@
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
     
-    self.contentTextView.text = card.contentA;
+    if (card.imageA) self.contentImageView.image = [UIImage imageWithData:card.imageA];
+    else self.contentTextView.text = card.contentA;
+    
+    self.sideAImage = [UIImage imageWithData:card.imageA];
+    self.sideBImage = [UIImage imageWithData:card.imageB];
+    NSLog(@"Card Content A = %@ Card Content B = %@ card Image A = %i card Image B = %i",card.contentA,card.contentB,[card.imageA length],[card.imageB length]);
     self.sideAText = card.contentA;
     self.sideBText = card.contentB;
     [self setSideA];
+    
+    if (self.isEditing) {
+        self.cancelImageButton.hidden = YES;
+    }
+
 }
 
 - (IBAction)flipButtonPressed:(id)sender {
     if (self.isSideA) {
-    	self.sideAText = self.contentTextView.text;
-    	self.contentTextView.text = self.sideBText;
-    	[self setSideB];
+        [self setSideB];
+        //self.sideAText = self.contentTextView.text;
+        //self.contentTextView.text = self.sideBText;
 	} else {
-    	self.sideBText = self.contentTextView.text;
-    	self.contentTextView.text = self.sideAText;
-    	[self setSideA];
+        [self setSideA];
+        //self.sideBText = self.contentTextView.text;
+        self.contentTextView.text = self.sideAText;
+        
 	}
-
+    if (self.isEditing) {
+        self.cancelImageButton.hidden = YES;
+    }
 }
 
 - (IBAction)deleteButtonPressed:(id)sender {
@@ -170,15 +276,165 @@
     }
 }
 
-#pragma Mark - Aux Functions
+
+
+- (IBAction)cameraButtonPressed:(id)sender {
+    UIImagePickerController *imagePicker =
+    [[UIImagePickerController alloc] init];
+    
+    imagePicker.delegate = self;
+    
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+    
+    imagePicker.allowsEditing = YES;
+    
+    [self presentViewController:imagePicker
+                       animated:YES completion:nil];
+}
+
+
+- (IBAction)cancelImageButtonPressed:(id)sender {
+    self.contentImageView.image = nil;
+    self.contentTextView.hidden = NO;
+    self.contentTextView.editable = NO;
+    self.cancelImageButton.hidden = YES;
+    
+    if (self.isSideA) self.sideAImage = nil;
+    else self.sideBImage = nil;
+    //If I remove a image,I cannot save the modifications in the card,unless I put a text on it
+    if(self.isEditing) {
+        self.editButton.enabled = NO;
+    }
+}
+
+- (IBAction)cancelButtonPressed:(id)sender {    
+    if (self.isEditing) {
+        Card *card = [self.cards objectAtIndex:self.currentCardIndex];
+        self.sideAImage = [UIImage imageWithData:card.imageA];
+        self.sideBImage = [UIImage imageWithData:card.imageB];
+        self.sideAText = card.contentA;
+        self.sideBText = card.contentB;
+        [self setSideA];
+        
+        self.contentTextView.editable = false;
+        self.isEditing = false;
+        
+        //Hidding  or showing the Buttons
+        self.deleteButton.hidden = NO;
+        self.createCardButton.hidden = NO;
+        self.previousButton.hidden = NO;
+        self.nextButton.hidden = NO;
+        self.flipButton.hidden = NO;
+        self.cameraButton.hidden = YES;
+        
+        
+        self.navigationItem.hidesBackButton = NO;
+        self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+        
+        if (!self.editButton.isEnabled) self.editButton.enabled = TRUE;
+        [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        
+    }
+    
+    if (self.isSavingNewCard) {
+        if ([self.cards count]) {
+            Card *card = [self.cards objectAtIndex:self.currentCardIndex];
+            self.sideAImage = [UIImage imageWithData:card.imageA];
+            self.sideBImage = [UIImage imageWithData:card.imageB];
+            self.sideAText = card.contentA;
+            self.sideBText = card.contentB;
+            [self setSideA];
+        }
+        else {
+            self.contentTextView.text = @"Your Deck is empty. Click \"New Card\" to add a new card.";
+            
+        }
+    }
+    self.deleteButton.hidden = NO;
+    self.editButton.hidden = NO;
+    self.previousButton.hidden = NO;
+    self.nextButton.hidden = NO;
+    self.cancelImageButton.hidden = YES;
+    self.cameraButton.hidden = YES;
+    self.isSavingNewCard = false;
+    
+    self.navigationItem.hidesBackButton = NO;
+    self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+    
+    [self.createCardButton setTitle:@"New Card" forState:UIControlStateNormal];
+    [self setSideA];
+     self.contentTextView.editable = false;
+}
+
+
+#pragma mark - UIImagepickercontroller delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.contentTextView.text = nil;
+    self.contentTextView.hidden = YES;
+    self.cancelImageButton.hidden = NO;
+    self.contentImageView.image = chosenImage;
+    
+    if (self.isSideA) {
+       self.sideAImage = chosenImage;
+        self.sideAText = nil;
+    }
+    else {
+        self.sideBImage = chosenImage;
+        self.sideBText = nil;
+    }
+    //If I pick a Image and I am editing a card,I can save the card
+    if(self.isEditing) {
+        self.editButton.enabled = YES;
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
+
+#pragma mark - Aux Functions
 - (void) setSideA {
     self.sideLabel.text = @"Side A";
     self.isSideA = YES;
+    //Setting the content,if there is a image the textView is null and vice versa
+    self.contentTextView.text = self.sideAText;
+    self.contentImageView.image = self.sideAImage;
+    if (self.sideAImage) {
+       self.contentTextView.hidden = YES;
+        //If its is in the saving process, allows the user to delete the image
+        if (self.isSavingNewCard) self.cancelImageButton.hidden = NO;
+    }
+    else {
+        self.contentTextView.hidden = NO;
+        self.contentImageView.image = nil;
+        self.cancelImageButton.hidden = YES;
+    }
 }
 
 - (void) setSideB {
     self.sideLabel.text = @"Side B";
     self.isSideA = NO;
+    //Setting the content,if there is a image the textView is null and vice versa
+    self.contentTextView.text = self.sideBText;
+    self.contentImageView.image = self.sideBImage;
+    
+    if (self.sideBImage)  {
+        self.contentTextView.hidden = YES;
+        //If its is in the saving process, allows the user to delete the image
+        if (self.isSavingNewCard) self.cancelImageButton.hidden = NO;
+    }
+    else {
+        self.contentTextView.hidden = NO;
+        self.contentImageView.image = nil;
+        self.cancelImageButton.hidden = YES;
+    }
 }
 
 
@@ -223,7 +479,6 @@
         	self.currentCardIndex=[self.cards count]-1;
     	}
         
-        
     	if ([self.cards count]==0) {
         	self.contentTextView.text = @"The deck is empty.";
     	} else {
@@ -238,16 +493,17 @@
 shouldChangeTextInRange: (NSRange) range
   replacementText: (NSString*) text
 {
-    if (self.isSideA) self.sideAText = textView.text;
-    else self.sideBText = textView.text;
+    
+    if(self.isEditing) {
+        //If there is no text and no image, doesn't allow the user to save the changes (Checking text in realtime)
+        if ((![self.contentTextView.text length]) && (!self.contentImageView.image)) self.editButton.enabled = NO;
+        else  self.editButton.enabled = YES;
+    }
+    
     
     if ([text isEqualToString:@"\n"]) {
-        if (self.isEditing) {
-            Card *cardToEdit = [self.cards objectAtIndex:self.currentCardIndex];
-            [Card editCard:cardToEdit withContentA:self.sideAText withContentB:self.sideBText];
-            textView.editable = false;
-            self.isEditing = false;
-        }
+        if (self.isSideA) self.sideAText = textView.text;
+        else self.sideBText = textView.text;
         [textView resignFirstResponder];
         return NO;
     }

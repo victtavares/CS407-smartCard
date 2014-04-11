@@ -9,10 +9,10 @@
 #import "Card.h"
 
 @interface Card (CRUD)
-+ (BOOL) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB inDeck:(Deck *) deck
-    intoManagedObjectContext:(NSManagedObjectContext *) context;
++ (BOOL) addCardWithContentA:(NSString *) contentA  inContentB:(NSString *) contentB withImageA:(UIImage *) imageA
+                  withImageB:(UIImage *) imageB ImageinDeck:(Deck *) deck intoManagedObjectContext:(NSManagedObjectContext *) context;
 
 +(void)deleteCard:(Card *)cardToDelete;
 
-+(BOOL) editCard:(Card *) card withContentA:(NSString *) contentA withContentB:(NSString *) contentB;
++(BOOL) editCard:(Card *) card withContentA:(NSString *) contentA withContentB:(NSString *) contentB withImageA:(UIImage *) imageA withImageB:(UIImage *) imageB;
 @end
