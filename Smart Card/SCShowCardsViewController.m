@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sideLabel;
-//Testing the merge
 @property (strong,nonatomic) NSMutableArray *cards;
 @property (nonatomic) int currentCardIndex;
 
@@ -26,7 +25,6 @@
 @property (strong,nonatomic) UIImage *sideBImage;
 
 @property (nonatomic) BOOL isSideA;
-//testing Merge!
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isSavingNewCard;
 
