@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sideLabel;
-
+//Testing the merge
 @property (strong,nonatomic) NSMutableArray *cards;
 @property (nonatomic) int currentCardIndex;
 
