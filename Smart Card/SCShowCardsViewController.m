@@ -26,7 +26,7 @@
 @property (strong,nonatomic) UIImage *sideBImage;
 
 @property (nonatomic) BOOL isSideA;
-
+//testing Merge!
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isSavingNewCard;
 
