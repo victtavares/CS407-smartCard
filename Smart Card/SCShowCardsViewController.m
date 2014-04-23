@@ -78,13 +78,6 @@
         self.sideAImage = [UIImage imageWithData:card.imageA];
         self.sideBImage = [UIImage imageWithData:card.imageB];
         [self setSideA];
-    } else {
-        //No cards at deck no edit and delete is enabled
-//        self.editButton.enabled = FALSE;
-//        self.deleteButton.enabled = FALSE;
-//        self.nextButton.enabled = FALSE;
-//        self.previousButton.enabled = FALSE;
-//        self.flipButton.enabled = FALSE;
     }
     
     self.isSideA = TRUE;
@@ -100,6 +93,7 @@
     //Button = edit
     if (!self.isEditing) {
         self.isEditing = TRUE;
+        
         
         //Hidding  or showing the Buttons
         self.deleteButton.hidden = YES;
@@ -328,7 +322,7 @@
         self.contentTextView.editable = false;
         self.isEditing = false;
         
-        //Hidding  or showing the Buttons
+        //Hidding or showing the Buttons
         self.deleteButton.hidden = NO;
         self.createCardButton.hidden = NO;
         self.previousButton.hidden = NO;
@@ -447,6 +441,9 @@
 
 
 - (void) changeButtonStatus {
+
+    
+    //Setting the Buttons in the case of a empty Deck
     if ([self.cards count]) {
         self.editButton.enabled = YES;
         self.deleteButton.enabled = YES;
@@ -530,7 +527,6 @@ shouldChangeTextInRange: (NSRange) range
         if ((![self.contentTextView.text length]) && (!self.contentImageView.image)) self.editButton.enabled = NO;
         else  self.editButton.enabled = YES;
     }
-    
     
     if ([text isEqualToString:@"\n"]) {
         if (self.isSideA) self.sideAText = textView.text;
