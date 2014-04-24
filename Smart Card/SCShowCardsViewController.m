@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 
+
 @interface SCShowCardsViewController () <UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;

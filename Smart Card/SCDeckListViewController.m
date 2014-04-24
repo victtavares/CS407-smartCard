@@ -12,6 +12,7 @@
 #import "Deck+CRUD.h"
 #import"SCShowCardsViewController.h"
 
+
 @interface SCDeckListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *originalTableView;
 @property (strong,nonatomic) Deck *selectedDeck;
@@ -26,6 +27,7 @@
     [super viewDidLoad];
     self.tableView = self.originalTableView;
     // Do any additional setup after loading the view.
+    
 }
 
 

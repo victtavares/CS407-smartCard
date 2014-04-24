@@ -297,11 +297,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMA-XZ-xqE">
-                                <rect key="frame" x="-7" y="111" width="149" height="30"/>
+                                <rect key="frame" x="7" y="111" width="149" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Deck">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="uploadDeckButtonPressed:" destination="Ley-Xj-Ish" eventType="touchUpInside" id="5rN-Zi-Nzv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-Ax-Ioi">
                                 <rect key="frame" x="260" y="162" width="34" height="30"/>
@@ -323,12 +326,19 @@
                                     <segue destination="dOg-CY-MZZ" kind="unwind" unwindAction="cancelManageDeck:" id="0T0-qN-gXk"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c4C-fm-q2p">
+                                <rect key="frame" x="71" y="162" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Manage Deck" id="Ppp-ih-d6C"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="c4C-fm-q2p" id="5mO-3S-oZi"/>
                         <outlet property="deckNameTextField" destination="5Ni-rS-YSP" id="rBI-Hz-l8i"/>
+                        <outlet property="uploadButton" destination="tMA-XZ-xqE" id="F55-PI-15S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMG-BQ-Zig" userLabel="First Responder" sceneMemberID="firstResponder"/>

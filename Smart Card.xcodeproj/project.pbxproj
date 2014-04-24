@@ -8,14 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645BD18E38EEC0019DB6E /* Card+CRUD.m */; };
-		E13645C118E390660019DB6E /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C018E390660019DB6E /* Deck.m */; };
-		E13645C418E390670019DB6E /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C318E390670019DB6E /* Card.m */; };
 		E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */; };
 		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
 		E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */; };
 		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
 		E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */; };
 		E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */; };
+		E1E1261B19086B53006876EF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1261A19086B53006876EF /* Parse.framework */; };
+		E1E1261D19086B60006876EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1261C19086B60006876EF /* AudioToolbox.framework */; };
+		E1E1261F19086B6A006876EF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1261E19086B6A006876EF /* CFNetwork.framework */; };
+		E1E1262119086B88006876EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262019086B88006876EF /* CoreLocation.framework */; };
+		E1E1262319086BA5006876EF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262219086BA5006876EF /* libz.dylib */; };
+		E1E1262519086BB0006876EF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262419086BB0006876EF /* MobileCoreServices.framework */; };
+		E1E1262719086BBB006876EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262619086BBB006876EF /* QuartzCore.framework */; };
+		E1E1262919086BC5006876EF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262819086BC5006876EF /* Security.framework */; };
+		E1E1262B19086BCF006876EF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262A19086BCF006876EF /* StoreKit.framework */; };
+		E1E1262D19086BDC006876EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1262C19086BDC006876EF /* SystemConfiguration.framework */; };
+		E1E1263019088807006876EF /* SCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1262F19088807006876EF /* SCConstants.m */; };
+		E1E12633190891A0006876EF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E12632190891A0006876EF /* MBProgressHUD.m */; };
+		E1E126371908BA4B006876EF /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E126361908BA4B006876EF /* Card.m */; };
+		E1E1263A1908BA4B006876EF /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E126391908BA4B006876EF /* Deck.m */; };
 		E1FA218C18D242CA00989AFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218B18D242CA00989AFB /* Foundation.framework */; };
 		E1FA218E18D242CA00989AFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218D18D242CA00989AFB /* CoreGraphics.framework */; };
 		E1FA219018D242CA00989AFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FA218F18D242CA00989AFB /* UIKit.framework */; };
@@ -46,10 +58,6 @@
 /* Begin PBXFileReference section */
 		E13645BC18E38EEC0019DB6E /* Card+CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+CRUD.h"; sourceTree = "<group>"; };
 		E13645BD18E38EEC0019DB6E /* Card+CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+CRUD.m"; sourceTree = "<group>"; };
-		E13645BF18E390660019DB6E /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
-		E13645C018E390660019DB6E /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
-		E13645C218E390670019DB6E /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		E13645C318E390670019DB6E /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		E13645C518E3925F0019DB6E /* SCShowCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShowCardsViewController.h; sourceTree = "<group>"; };
 		E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShowCardsViewController.m; sourceTree = "<group>"; };
 		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -60,6 +68,24 @@
 		E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCoreDataViewController.m; sourceTree = "<group>"; };
 		E1D0ACBC18E3416C000D795B /* Deck+CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Deck+CRUD.h"; sourceTree = "<group>"; };
 		E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Deck+CRUD.m"; sourceTree = "<group>"; };
+		E1E1261A19086B53006876EF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E1E1261C19086B60006876EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E1E1261E19086B6A006876EF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E1E1262019086B88006876EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E1E1262219086BA5006876EF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E1E1262419086BB0006876EF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E1E1262619086BBB006876EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E1E1262819086BC5006876EF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1E1262A19086BCF006876EF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E1E1262C19086BDC006876EF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E1E1262E19088807006876EF /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
+		E1E1262F19088807006876EF /* SCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConstants.m; sourceTree = "<group>"; };
+		E1E12631190891A0006876EF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E1E12632190891A0006876EF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E1E126351908BA4B006876EF /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		E1E126361908BA4B006876EF /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		E1E126381908BA4B006876EF /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		E1E126391908BA4B006876EF /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		E1FA218818D242CA00989AFB /* Smart Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FA218B18D242CA00989AFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1FA218D18D242CA00989AFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,10 +114,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */,
+				E1E1262D19086BDC006876EF /* SystemConfiguration.framework in Frameworks */,
+				E1E1262B19086BCF006876EF /* StoreKit.framework in Frameworks */,
+				E1E1262919086BC5006876EF /* Security.framework in Frameworks */,
+				E1E1262719086BBB006876EF /* QuartzCore.framework in Frameworks */,
+				E1E1262519086BB0006876EF /* MobileCoreServices.framework in Frameworks */,
+				E1E1262319086BA5006876EF /* libz.dylib in Frameworks */,
+				E1E1262119086B88006876EF /* CoreLocation.framework in Frameworks */,
 				E1FA218E18D242CA00989AFB /* CoreGraphics.framework in Frameworks */,
+				E1E1261F19086B6A006876EF /* CFNetwork.framework in Frameworks */,
+				E1E1261D19086B60006876EF /* AudioToolbox.framework in Frameworks */,
+				E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */,
 				E1FA219018D242CA00989AFB /* UIKit.framework in Frameworks */,
 				E1FA218C18D242CA00989AFB /* Foundation.framework in Frameworks */,
+				E1E1261B19086B53006876EF /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,15 +147,17 @@
 		E1B91AD018E2107C0028B355 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1E126381908BA4B006876EF /* Deck.h */,
+				E1E126391908BA4B006876EF /* Deck.m */,
+				E1E126351908BA4B006876EF /* Card.h */,
+				E1E126361908BA4B006876EF /* Card.m */,
 				E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */,
-				E13645C218E390670019DB6E /* Card.h */,
-				E13645C318E390670019DB6E /* Card.m */,
-				E13645BF18E390660019DB6E /* Deck.h */,
-				E13645C018E390660019DB6E /* Deck.m */,
 				E13645BC18E38EEC0019DB6E /* Card+CRUD.h */,
 				E13645BD18E38EEC0019DB6E /* Card+CRUD.m */,
 				E1D0ACBC18E3416C000D795B /* Deck+CRUD.h */,
 				E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */,
+				E1E1262E19088807006876EF /* SCConstants.h */,
+				E1E1262F19088807006876EF /* SCConstants.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,6 +175,15 @@
 				E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		E1E12634190891B2006876EF /* External View */ = {
+			isa = PBXGroup;
+			children = (
+				E1E12631190891A0006876EF /* MBProgressHUD.h */,
+				E1E12632190891A0006876EF /* MBProgressHUD.m */,
+			);
+			name = "External View";
 			sourceTree = "<group>";
 		};
 		E1FA217F18D242CA00989AFB = {
@@ -161,6 +208,16 @@
 		E1FA218A18D242CA00989AFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1E1262C19086BDC006876EF /* SystemConfiguration.framework */,
+				E1E1262A19086BCF006876EF /* StoreKit.framework */,
+				E1E1262819086BC5006876EF /* Security.framework */,
+				E1E1262619086BBB006876EF /* QuartzCore.framework */,
+				E1E1262419086BB0006876EF /* MobileCoreServices.framework */,
+				E1E1262219086BA5006876EF /* libz.dylib */,
+				E1E1262019086B88006876EF /* CoreLocation.framework */,
+				E1E1261E19086B6A006876EF /* CFNetwork.framework */,
+				E1E1261C19086B60006876EF /* AudioToolbox.framework */,
+				E1E1261A19086B53006876EF /* Parse.framework */,
 				E163C6EF18E20BF00008DE4C /* CoreData.framework */,
 				E1FA218B18D242CA00989AFB /* Foundation.framework */,
 				E1FA218D18D242CA00989AFB /* CoreGraphics.framework */,
@@ -179,6 +236,7 @@
 				E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
+				E1E12634190891B2006876EF /* External View */,
 				E1B91AD218E210910028B355 /* Controller */,
 				E1B91AD018E2107C0028B355 /* Model */,
 				E1FA219218D242CA00989AFB /* Supporting Files */,
@@ -315,16 +373,18 @@
 			files = (
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
 				E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */,
+				E1E1263019088807006876EF /* SCConstants.m in Sources */,
 				E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */,
 				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
-				E13645C118E390660019DB6E /* Deck.m in Sources */,
+				E1E126371908BA4B006876EF /* Card.m in Sources */,
 				E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */,
 				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
+				E1E1263A1908BA4B006876EF /* Deck.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
 				E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
-				E13645C418E390670019DB6E /* Card.m in Sources */,
+				E1E12633190891A0006876EF /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +509,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smart Card/Smart Card-Prefix.pch";
 				INFOPLIST_FILE = "Smart Card/Smart Card-Info.plist";
@@ -462,6 +526,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smart Card/Smart Card-Prefix.pch";
 				INFOPLIST_FILE = "Smart Card/Smart Card-Info.plist";

@@ -81,6 +81,11 @@
     
 }
 
++(NSString *) stringValueForID:(Deck *) deck {
+    return [NSString stringWithFormat:@"%@",deck.objectID];;
+}
+
+
 
 
 

@@ -15,4 +15,5 @@
 +(void)deleteCard:(Card *)cardToDelete;
 
 +(BOOL) editCard:(Card *) card withContentA:(NSString *) contentA withContentB:(NSString *) contentB withImageA:(UIImage *) imageA withImageB:(UIImage *) imageB;
+
 @end

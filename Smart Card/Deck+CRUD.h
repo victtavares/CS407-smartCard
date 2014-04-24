@@ -16,4 +16,6 @@
 
 + (void) deleteDeck:(Deck *)deckToDelete;
 
++(NSString *) stringValueForID:(Deck *) deck;
+
 @end
