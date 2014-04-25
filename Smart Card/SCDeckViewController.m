@@ -19,6 +19,10 @@
 @property (nonatomic) NSInteger count;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *uploadDeckLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+
 
 @end
 
@@ -40,13 +44,9 @@
 }
 
 -(void) initialSetup {
-    //self.selectedDeck.isUploaded = NO;
-    if (self.selectedDeck.isUploaded.boolValue) {
-        
-        self.uploadButton.enabled = NO;
-        
-    }
+    [self.deckNameTextField becomeFirstResponder];
     
+    if (self.selectedDeck.isUploaded.boolValue) self.uploadButton.enabled = NO;
     
     self.deckNameTextField.delegate = self;
     self.deckNameTextField.text = self.selectedDeck.name;
@@ -70,7 +70,7 @@
 -(void) saveModifications {
     BOOL isEdit = [Deck editDeck:self.selectedDeck withName:self.deckNameTextField.text withLat:self.selectedDeck.lat withLon:self.selectedDeck.lon];
     if (!isEdit) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Duplicate Decks" message:@"Unable to add this deck,a deck with this name already exists!"
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"Unable to modify this deck!"
                                                       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     } else {
@@ -81,6 +81,18 @@
     }
 }
 
+
+-(void) UIStartUploadDeck {
+    NSLog(@"---------------- Debugging Upload ---------------- ");
+    [self.activityIndicator startAnimating];
+    self.uploadDeckLabel.hidden = NO;
+}
+
+-(void) UIFinishUploadDeck {
+    NSLog(@"Saving the deck!");
+    [self.activityIndicator stopAnimating];
+    self.uploadDeckLabel.hidden = YES;
+}
 
 - (void) auxSaveSideBInBackground:(Card *)card withCardCloud:(PFObject *) cardCloud withDeckCloud:(PFObject *) deckCloud{
     //there is a imageB
@@ -94,8 +106,8 @@
                 self.count--;
                 //if its the last card
                 if (self.count == 0) {
+                    [self UIFinishUploadDeck];
                     
-                    NSLog(@"Saving the deck!");
                     //saving deck on background
                     [deckCloud saveInBackground];
                 }
@@ -111,8 +123,7 @@
             self.count--;
             //if its the last card
             if (self.count == 0) {
-                
-                NSLog(@"Saving the deck!");
+                [self UIFinishUploadDeck];
                 //saving deck on background
                 [deckCloud saveInBackground];
             }
@@ -124,12 +135,10 @@
 - (IBAction)uploadDeckButtonPressed:(id)sender {
     //Update UI
     self.selectedDeck.isUploaded = [NSNumber numberWithBool:YES];
+    [Deck updateDeckOnWhenUploaded:self.selectedDeck];
     self.uploadButton.enabled = NO;
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uploading your Deck!" message:nil delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
-    [alert show];
-    
-    NSLog(@"---------------- Debugging Upload ---------------- ");
+
+    [self UIStartUploadDeck];
     //Setting deck object
     PFObject *deckCloud = [PFObject objectWithClassName:kDeckClassName];
     deckCloud[kDeckNameKey] = self.selectedDeck.name;
@@ -139,8 +148,7 @@
     deckCloud[KDeckQuantityCardsKey] = [NSNumber numberWithInt:[self.selectedDeck.cards count]];
     
     
-    
-    
+
     self.count = self.selectedDeck.cards.count;
     for (Card *card in self.selectedDeck.cards) {
         PFObject *cardCloud = [PFObject objectWithClassName:kCardClassName];

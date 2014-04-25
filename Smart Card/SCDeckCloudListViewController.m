@@ -33,7 +33,7 @@
         self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 10;
+        self.objectsPerPage = 11;
     }
     return self;
 }
@@ -77,6 +77,11 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    //If it's the load more cell...
+        if ([indexPath row] > self.objects.count -1 ) {
+            return;
+        }
     
     //Retrieve the selected Deck
     PFObject *obj = [self.objects objectAtIndex:indexPath.row];

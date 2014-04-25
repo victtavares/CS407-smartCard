@@ -20,4 +20,6 @@
 +(NSString *) stringValueForID:(Deck *) deck;
 
 + (void) saveDeckFromCloud:(PFObject *) deck withCards: (NSArray *) cards;
+
++(void) updateDeckOnWhenUploaded:(Deck *) deck;
 @end

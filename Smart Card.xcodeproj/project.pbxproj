@@ -11,6 +11,7 @@
 		E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */; };
 		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
 		E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */; };
+		E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */; };
 		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
 		E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */; };
 		E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACBD18E3416C000D795B /* Deck+CRUD.m */; };
@@ -66,6 +67,8 @@
 		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E167A49318E262E8007DCA3B /* SCAppDelegate+MCO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCAppDelegate+MCO.h"; sourceTree = "<group>"; };
 		E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCAppDelegate+MCO.m"; sourceTree = "<group>"; };
+		E1B865DE190AC74B00854C1A /* SLGlowingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLGlowingTextField.h; sourceTree = "<group>"; };
+		E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLGlowingTextField.m; sourceTree = "<group>"; };
 		E1B91AD418E210AD0028B355 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCoreDataViewController.h; sourceTree = "<group>"; };
 		E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCoreDataViewController.m; sourceTree = "<group>"; };
@@ -192,13 +195,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		E1E12634190891B2006876EF /* External View */ = {
+		E1E12634190891B2006876EF /* Extra Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1B865DE190AC74B00854C1A /* SLGlowingTextField.h */,
+				E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */,
 				E1E12631190891A0006876EF /* MBProgressHUD.h */,
 				E1E12632190891A0006876EF /* MBProgressHUD.m */,
 			);
-			name = "External View";
+			name = "Extra Views";
 			sourceTree = "<group>";
 		};
 		E1FA217F18D242CA00989AFB = {
@@ -251,7 +256,7 @@
 				E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
-				E1E12634190891B2006876EF /* External View */,
+				E1E12634190891B2006876EF /* Extra Views */,
 				E1B91AD218E210910028B355 /* Controller */,
 				E1B91AD018E2107C0028B355 /* Model */,
 				E1FA219218D242CA00989AFB /* Supporting Files */,
@@ -396,6 +401,7 @@
 				E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */,
 				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
 				E1E1263A1908BA4B006876EF /* Deck.m in Sources */,
+				E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
 				E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */,

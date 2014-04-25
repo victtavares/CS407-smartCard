@@ -47,13 +47,13 @@
     self.sideLabel.text = @"Side A";
     self.isSideA = YES;
     //Setting the content,if there is a image the textView is null and vice versa
-    self.textView.text = self.sideAtext;
+    self.textContent.text = self.sideAtext;
     self.imageView.image = self.sideAImage;
     
-    if (self.sideAImage) self.textView.hidden = YES;
+    if (self.sideAImage) self.textContent.hidden = YES;
     
     else {
-        self.textView.hidden = NO;
+        self.textContent.hidden = NO;
         self.imageView.image = nil;
     }
 }
@@ -64,12 +64,12 @@
     self.sideLabel.text = @"Side B";
     self.isSideA = NO;
     //Setting the content,if there is a image the textView is null and vice versa
-    self.textView.text = self.sideBtext;
+    self.textContent.text = self.sideBtext;
     self.imageView.image = self.sideBImage;
     
-    if (self.sideBImage) self.textView.hidden = YES;
+    if (self.sideBImage) self.textContent.hidden = YES;
     else {
-        self.textView.hidden = NO;
+        self.textContent.hidden = NO;
         self.imageView.image = nil;
     }
 }

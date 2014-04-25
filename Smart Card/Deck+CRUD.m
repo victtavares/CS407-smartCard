@@ -83,6 +83,11 @@
     
 }
 
+
++(void) updateDeckOnWhenUploaded:(Deck *) deck {
+    [self saveChangesWithContext:[deck managedObjectContext]];
+}
+
 +(NSString *) stringValueForID:(Deck *) deck  {
     return [NSString stringWithFormat:@"%@",deck.objectID];;
 }
@@ -114,7 +119,6 @@
     
     [self saveChangesWithContext:context];
 
-    
     for (PFObject *card in cards) {
         NSLog(@"Quantidade:%i",cards.count);
         __block UIImage *imageA = nil;
@@ -133,6 +137,7 @@
                         imageB = [UIImage imageWithData:data];
                         NSLog(@"ImageA: %@ | imageB: %@",imageA,imageB);
                         [Card addCardWithContentA:card[kCardContentAKey] inContentB:card[kCardContentBKey] withImageA:imageA withImageB:imageB ImageinDeck:decktoAdd intoManagedObjectContext:context];
+                        
                     }];
                     // But no image B
                 } else {

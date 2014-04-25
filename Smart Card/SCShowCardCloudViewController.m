@@ -31,7 +31,7 @@
     //if the deck is not empty
     if ([self.cards count]) {
        PFObject *card = [self.cards objectAtIndex:0];
-       [self loadImagesAndPrepareSideAFromCard:card];
+       [self loadContentAndPrepareSideAFromCard:card];
     }
 }
 
@@ -42,31 +42,42 @@
     self.sideBtext = nil;
 }
 
--(void) loadImagesAndPrepareSideAFromCard:(PFObject *) card {
+-(void) loadContentAndPrepareSideAFromCard:(PFObject *) card {
     //Clean the data from previous views
     [self clearCache];
+    //If have Image A
     if (card[kCardimageAKey]) {
         PFFile *imageAFile = (PFFile *) card[kCardimageAKey];
         [imageAFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             self.sideAImage = [UIImage imageWithData:data];
+            //Also have Image B
             if (card[kCardimageBKey]) {
                 PFFile *imageBFile = (PFFile *) card[kCardimageBKey];
                 [imageBFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     self.sideBImage = [UIImage imageWithData:data];
-                    //NSLog(@"SIDE A:%@ SIDE B:%@",self.sideAImage,self.sideBImage);
                     [self prepareSideA];
                 }];
-            } else self.sideBtext = card[kCardContentBKey];
+            }
+            //Doesn't have Image B
+            else {
+               self.sideBtext = card[kCardContentBKey];
+                [self prepareSideA];
+            }
         }];
+     //Doesn't have imageA...
     } else {
         self.sideAtext = card[kCardContentAKey];
+        //Have Image B....
         if (card[kCardimageBKey]) {
             PFFile *imageBFile = (PFFile *) card[kCardimageBKey];
             [imageBFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 self.sideBImage = [UIImage imageWithData:data];
                 [self prepareSideA];
             }];
-        } else self.sideBtext = card[kCardContentBKey];
+        } else {
+           self.sideBtext = card[kCardContentBKey];
+            [self prepareSideA];
+        }
     }
 }
 
@@ -82,7 +93,7 @@
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
     [self updateCounter];
-    [self loadImagesAndPrepareSideAFromCard:card];
+    [self loadContentAndPrepareSideAFromCard:card];
     
 }
 
@@ -97,12 +108,25 @@
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
     [self updateCounter];
-    [self loadImagesAndPrepareSideAFromCard:card];
+    [self loadContentAndPrepareSideAFromCard:card];
+}
+
+
+-(void) UIStartUploadDeck {
+    //NSLog(@"---------------- Debugging Upload ---------------- ");
+    //[self.activityIndicator startAnimating];
+    //self.uploadDeckLabel.hidden = NO;
+}
+
+-(void) UIFinishUploadDeck {
+    //NSLog(@"Saving the deck!");
+    //[self.activityIndicator stopAnimating];
+    //self.uploadDeckLabel.hidden = YES;
 }
 
 
 - (IBAction)downloadButtonPressed:(id)sender {
-    NSString *tittle =  [NSString stringWithFormat:@"Downloading %@, It may take some minutes!",self.deck[kDeckNameKey]];
+    NSString *tittle =  [NSString stringWithFormat:@"Downloading %@...",self.deck[kDeckNameKey]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:tittle message:nil delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
     [alert show];
     [Deck saveDeckFromCloud:self.deck withCards:self.cards];
