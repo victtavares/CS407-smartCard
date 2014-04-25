@@ -11,4 +11,5 @@
 
 @interface SCDeckViewController : UIViewController
 @property (strong,nonatomic) Deck *selectedDeck;
+
 @end

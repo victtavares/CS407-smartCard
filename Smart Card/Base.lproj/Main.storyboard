@@ -4,63 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Smart Card-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-C5-XzT">
-                                <rect key="frame" x="122" y="121" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="My Decks">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="YcD-QY-C3x" kind="push" identifier="goDecks" id="7F6-qW-3Kk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dst-Uc-mbM">
-                                <rect key="frame" x="100" y="206" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Decks in the Map">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsI-8v-fNd">
-                                <rect key="frame" x="122" y="287" width="90" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Public Decks">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="kiL-RV-d3c" kind="push" id="fbq-yf-61r"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqu-1M-UwK">
-                                <rect key="frame" x="134" y="373" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Smart Card" id="oUm-SS-H9K">
-                        <barButtonItem key="backBarButtonItem" title=" " id="bYO-hg-6Kx"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="378" y="-74"/>
-        </scene>
         <!--Deck List View Controller - Decks-->
         <scene sceneID="rfy-2d-oHU">
             <objects>
@@ -70,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Hlv-B1-wBv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aD4-KU-aYA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gi7-GC-TTc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -112,11 +55,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Decks" id="oeF-ne-oK5">
-                        <barButtonItem key="backBarButtonItem" title=" " id="bqT-bn-U4x"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cjm-FW-76V">
-                            <connections>
-                                <action selector="addDeckButtonPressed:" destination="YcD-QY-C3x" id="kZk-10-sje"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" id="lBU-YU-9Zl">
+                            <view key="customView" clipsSubviews="YES" contentMode="scaleToFill" id="kbw-As-zMh">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="scQ-Zn-JVS">
+                                        <rect key="frame" x="0.0" y="-5" width="71" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem image="publicButton" id="OMc-6A-PCp" userLabel="public">
+                                                <connections>
+                                                    <segue destination="kiL-RV-d3c" kind="push" id="y39-mG-4T3"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="C3q-DQ-OJQ"/>
+                                            <barButtonItem systemItem="add" id="6We-vE-6kR" userLabel="add">
+                                                <connections>
+                                                    <action selector="addDeckButtonPressed:" destination="YcD-QY-C3x" id="a8s-ix-FJ1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="barTintColor" red="0.023529411760000001" green="0.47843137250000001" blue="0.70980392160000005" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -126,14 +90,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTq-UH-jj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="-56"/>
+            <point key="canvasLocation" x="800" y="-74"/>
         </scene>
         <!--Deck Cloud List View Controller - Public Decks-->
         <scene sceneID="kz4-Ye-aHy">
             <objects>
                 <tableViewController id="kiL-RV-d3c" customClass="SCDeckCloudListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cUM-G5-EbN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -179,7 +143,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILK-im-WbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="546"/>
+            <point key="canvasLocation" x="476" y="570"/>
         </scene>
         <!--Show Card Cloud View Controller - Deck 1-->
         <scene sceneID="BqG-Nr-CNS">
@@ -190,15 +154,15 @@
                         <viewControllerLayoutGuide type="bottom" id="4Km-U0-tSn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Ug-ax-f8c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8W-HI-JMe" userLabel="cardView">
-                                <rect key="frame" x="15" y="96" width="290" height="299"/>
+                                <rect key="frame" x="15" y="96" width="290" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6U9-EY-I2M" userLabel="footView">
-                                        <rect key="frame" x="1" y="261" width="290" height="38"/>
+                                        <rect key="frame" x="1" y="261" width="290" height="126"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Side A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-BU-DJu">
@@ -285,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT8-76-aaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1405" y="565"/>
+            <point key="canvasLocation" x="937" y="583"/>
         </scene>
         <!--Show Cards View Controller - Deck 1-->
         <scene sceneID="V3B-pX-iD3">
@@ -296,7 +260,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mdc-bc-eq2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ysc-an-f8o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yw-oh-oDp">
@@ -438,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99Z-Ba-H4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="-90"/>
+            <point key="canvasLocation" x="1242" y="-90"/>
         </scene>
         <!--Deck View Controller - Manage Deck-->
         <scene sceneID="E2d-Q9-4fU">
@@ -449,7 +413,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J7M-lW-Lts"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dxz-iu-6Bf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZCS-TC-3S3" userLabel="topBar">
@@ -536,7 +500,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMG-BQ-Zig" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dOg-CY-MZZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="-84"/>
+            <point key="canvasLocation" x="1701" y="-74"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Qhk-au-qGc">
@@ -547,11 +511,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bOE-fe-2iW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bvy-Jg-5QD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8G-1h-gUp">
-                                <rect key="frame" x="20" y="65" width="280" height="313"/>
+                                <rect key="frame" x="20" y="65" width="280" height="401"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -585,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLh-9p-7KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="539"/>
+            <point key="canvasLocation" x="1414" y="597"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JNI-Wj-Auv">
@@ -606,7 +570,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="abP-O8-rfR"/>
+                        <segue destination="YcD-QY-C3x" kind="relationship" relationship="rootViewController" id="sFM-6X-Wmh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hZ-eW-lN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -619,11 +583,12 @@
         <image name="circleBackGround" width="128" height="128"/>
         <image name="downloadCloudButton" width="64" height="64"/>
         <image name="left_button" width="50" height="50"/>
+        <image name="publicButton" width="40" height="40"/>
         <image name="right_button" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

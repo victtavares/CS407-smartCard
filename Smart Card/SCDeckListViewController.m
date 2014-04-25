@@ -26,22 +26,23 @@
 {
     [super viewDidLoad];
     self.tableView = self.originalTableView;
-    // Do any additional setup after loading the view.
-    
+    SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [appDelegate cardDatabaseContext];
 }
+
 
 
 - (void)awakeFromNib {
-    
-    SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [appDelegate cardDatabaseContext];
-    
+//    SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    self.managedObjectContext = [appDelegate cardDatabaseContext];
 }
+
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     _managedObjectContext = managedObjectContext;
     //Getting all the decks,predicate = nil
+    NSLog(@"com:%@",managedObjectContext);
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Deck"];
     request.predicate = nil;
     //Put the deck in alphabetical Order
