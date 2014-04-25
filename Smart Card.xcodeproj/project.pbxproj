@@ -47,6 +47,9 @@
 		E1FA21B718D242CA00989AFB /* Smart_CardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21B618D242CA00989AFB /* Smart_CardTests.m */; };
 		E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21C118D251B300989AFB /* SCDeckViewController.m */; };
 		E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */; };
+		E1FEC1BC190AF96900463499 /* SCCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC1B7190AF96900463499 /* SCCardView.m */; };
+		E1FEC1BD190AF96900463499 /* SCDropBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC1B9190AF96900463499 /* SCDropBehavior.m */; };
+		E1FEC1BE190AF96900463499 /* SCGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC1BB190AF96900463499 /* SCGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,12 @@
 		E1FA21C118D251B300989AFB /* SCDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckViewController.m; sourceTree = "<group>"; };
 		E1FA21C318D257FC00989AFB /* SCDeckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckListViewController.h; sourceTree = "<group>"; };
 		E1FA21C418D257FC00989AFB /* SCDeckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckListViewController.m; sourceTree = "<group>"; };
+		E1FEC1B6190AF96900463499 /* SCCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCardView.h; sourceTree = "<group>"; };
+		E1FEC1B7190AF96900463499 /* SCCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCardView.m; sourceTree = "<group>"; };
+		E1FEC1B8190AF96900463499 /* SCDropBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDropBehavior.h; sourceTree = "<group>"; };
+		E1FEC1B9190AF96900463499 /* SCDropBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDropBehavior.m; sourceTree = "<group>"; };
+		E1FEC1BA190AF96900463499 /* SCGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGameViewController.h; sourceTree = "<group>"; };
+		E1FEC1BB190AF96900463499 /* SCGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +265,7 @@
 				E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */,
 				E1FA219D18D242CA00989AFB /* Main.storyboard */,
 				E1FA21A318D242CA00989AFB /* Images.xcassets */,
+				E1FEC1B5190AF96900463499 /* game */,
 				E1E12634190891B2006876EF /* Extra Views */,
 				E1B91AD218E210910028B355 /* Controller */,
 				E1B91AD018E2107C0028B355 /* Model */,
@@ -291,6 +301,20 @@
 				E1FA21B318D242CA00989AFB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1FEC1B5190AF96900463499 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				E1FEC1B6190AF96900463499 /* SCCardView.h */,
+				E1FEC1B7190AF96900463499 /* SCCardView.m */,
+				E1FEC1B8190AF96900463499 /* SCDropBehavior.h */,
+				E1FEC1B9190AF96900463499 /* SCDropBehavior.m */,
+				E1FEC1BA190AF96900463499 /* SCGameViewController.h */,
+				E1FEC1BB190AF96900463499 /* SCGameViewController.m */,
+			);
+			name = game;
+			path = ../game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +417,7 @@
 			files = (
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
 				E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */,
+				E1FEC1BE190AF96900463499 /* SCGameViewController.m in Sources */,
 				E1E1263019088807006876EF /* SCConstants.m in Sources */,
 				E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */,
 				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
@@ -401,11 +426,13 @@
 				E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */,
 				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
 				E1E1263A1908BA4B006876EF /* Deck.m in Sources */,
+				E1FEC1BD190AF96900463499 /* SCDropBehavior.m in Sources */,
 				E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
 				E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */,
 				E1E1263D1908CFE2006876EF /* SCDeckCloudListViewController.m in Sources */,
+				E1FEC1BC190AF96900463499 /* SCCardView.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,
 				E1E1264319098F75006876EF /* SCShowCardCloudViewController.m in Sources */,
 				E1E12633190891A0006876EF /* MBProgressHUD.m in Sources */,

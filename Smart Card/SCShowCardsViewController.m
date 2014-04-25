@@ -9,6 +9,7 @@
 #import "SCShowCardsViewController.h"
 #import "Card+CRUD.h"
 #import "SCDeckViewController.h"
+#import "SCGameViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 
@@ -468,6 +469,11 @@
 {
     if([segue.destinationViewController isKindOfClass:[SCDeckViewController class]] ) {
         SCDeckViewController *dvc = (SCDeckViewController *) segue.destinationViewController;
+        dvc.selectedDeck = self.deck;
+    }
+    
+    if([segue.destinationViewController isKindOfClass:[SCGameViewController class]] ) {
+        SCGameViewController *dvc = (SCGameViewController *) segue.destinationViewController;
         dvc.selectedDeck = self.deck;
     }
 

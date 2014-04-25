@@ -112,17 +112,7 @@
 }
 
 
--(void) UIStartUploadDeck {
-    //NSLog(@"---------------- Debugging Upload ---------------- ");
-    //[self.activityIndicator startAnimating];
-    //self.uploadDeckLabel.hidden = NO;
-}
 
--(void) UIFinishUploadDeck {
-    //NSLog(@"Saving the deck!");
-    //[self.activityIndicator stopAnimating];
-    //self.uploadDeckLabel.hidden = YES;
-}
 
 
 - (IBAction)downloadButtonPressed:(id)sender {

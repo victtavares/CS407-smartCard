@@ -397,6 +397,16 @@
                                     <action selector="cancelImageButtonPressed:" destination="UQC-bx-SJW" eventType="touchUpInside" id="aO5-Ye-XOo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-8U-3z4">
+                                <rect key="frame" x="140" y="440" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vIF-rF-zfx" kind="push" identifier="goGame" id="V1Z-DM-gTR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -527,6 +537,55 @@
                 <exit id="dOg-CY-MZZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2167" y="-84"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="Qhk-au-qGc">
+            <objects>
+                <viewController id="vIF-rF-zfx" customClass="SCGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ziJ-nz-9l1"/>
+                        <viewControllerLayoutGuide type="bottom" id="bOE-fe-2iW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bvy-Jg-5QD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8G-1h-gUp">
+                                <rect key="frame" x="20" y="65" width="280" height="313"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6e-iB-GYW">
+                                <rect key="frame" x="47" y="430" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Side A">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dropSideA:" destination="vIF-rF-zfx" eventType="touchUpInside" id="kvd-36-7cP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avA-Uz-ECV">
+                                <rect key="frame" x="208" y="430" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Side B">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dropSideB:" destination="vIF-rF-zfx" eventType="touchUpInside" id="wLI-n5-aog"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lzh-hr-vJs"/>
+                    <connections>
+                        <outlet property="gameView" destination="E8G-1h-gUp" id="7Ok-rf-3Lw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLh-9p-7KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JNI-Wj-Auv">
