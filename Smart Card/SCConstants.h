@@ -17,6 +17,7 @@ extern NSString *const kDeckNameKey;
 extern NSString *const kDeckLatKey;
 extern NSString *const kDeckLonKey;
 extern NSString *const kDeckNameInitialKey;
+extern NSString *const KDeckQuantityCardsKey;
 extern NSString *const kDeckClassName;
 
 
@@ -31,6 +32,4 @@ extern NSString *const kCardDeckKey;
 extern NSString *const kCardClassName;
 
 
-#pragma mark - UserDefaults
-extern NSString *const kIsUploadingDeckKey;
 @end

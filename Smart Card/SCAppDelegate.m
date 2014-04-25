@@ -24,7 +24,13 @@
                   clientKey:@"ie8s9fmqsJ8GPDuPfYHCvvXj8BBe8zKgpdHwFbVC"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     self.cardDatabaseContext = [self createMainQueueManagedObjectContext];
+    
+    #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+    
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     return YES;
+    
+    
 
 }
 							

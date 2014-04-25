@@ -18,6 +18,7 @@ NSString *const kDeckNameKey = @"name";
 NSString *const kDeckLatKey = @"lat";
 NSString *const kDeckLonKey = @"lon";
 NSString *const kDeckNameInitialKey = @"nameInitial";
+NSString *const KDeckQuantityCardsKey = @"quantityCards";
 NSString *const kDeckClassName = @"Deck";
 
 #pragma mark - PFObject Card Class
@@ -30,9 +31,5 @@ NSString *const kCardDeckKey = @"Deck";
 NSString *const kCardClassName = @"Card";
 
 
-
-#pragma mark - UserDefaults
-// Field keys
-NSString *const kIsUploadingDeckKey = @"deckName";
 
 @end

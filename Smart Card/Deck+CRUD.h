@@ -7,6 +7,7 @@
 //
 
 #import "Deck.h"
+#import <Parse/Parse.h>
 
 @interface Deck (CRUD)
 + (BOOL) addDeckWithName:(NSString *) name withLat:(NSNumber *) lat withLon:(NSNumber *) lon 
@@ -18,4 +19,5 @@
 
 +(NSString *) stringValueForID:(Deck *) deck;
 
++ (void) saveDeckFromCloud:(PFObject *) deck withCards: (NSArray *) cards;
 @end
