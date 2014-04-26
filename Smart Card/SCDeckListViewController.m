@@ -11,6 +11,7 @@
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
 #import"SCShowCardsViewController.h"
+#import "SCDeckTableViewCell.h"
 
 
 @interface SCDeckListViewController ()
@@ -64,12 +65,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Deck Cell"];
+    SCDeckTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Deck Cell"];
     
     Deck *deck = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = deck.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",[[deck cards]count]];
+    cell.nameDeckLabel.text = deck.name;
+    cell.quantityDeckLabel.text = [NSString stringWithFormat:@"%i",[[deck cards]count]];
     
     return cell;
 
@@ -79,6 +80,7 @@
     
     self.selectedDeck = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"goShowCards" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 

@@ -11,6 +11,7 @@
 		E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */; };
 		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
 		E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */; };
+		E198C62E190B281800CA8210 /* SCDeckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */; };
 		E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */; };
 		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
 		E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */; };
@@ -70,6 +71,8 @@
 		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E167A49318E262E8007DCA3B /* SCAppDelegate+MCO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCAppDelegate+MCO.h"; sourceTree = "<group>"; };
 		E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCAppDelegate+MCO.m"; sourceTree = "<group>"; };
+		E198C62C190B281800CA8210 /* SCDeckTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckTableViewCell.h; sourceTree = "<group>"; };
+		E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckTableViewCell.m; sourceTree = "<group>"; };
 		E1B865DE190AC74B00854C1A /* SLGlowingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLGlowingTextField.h; sourceTree = "<group>"; };
 		E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLGlowingTextField.m; sourceTree = "<group>"; };
 		E1B91AD418E210AD0028B355 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		E1B91AD218E210910028B355 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E198C62C190B281800CA8210 /* SCDeckTableViewCell.h */,
+				E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */,
 				E13645C518E3925F0019DB6E /* SCShowCardsViewController.h */,
 				E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */,
 				E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */,
@@ -417,6 +422,7 @@
 			files = (
 				E1FA219C18D242CA00989AFB /* SCAppDelegate.m in Sources */,
 				E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */,
+				E198C62E190B281800CA8210 /* SCDeckTableViewCell.m in Sources */,
 				E1FEC1BE190AF96900463499 /* SCGameViewController.m in Sources */,
 				E1E1263019088807006876EF /* SCConstants.m in Sources */,
 				E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */,
