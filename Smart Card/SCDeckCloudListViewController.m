@@ -10,6 +10,7 @@
 #import "SCShowCardCloudViewController.h"
 #import "SCConstants.h"
 #import "MBProgressHUD.h"
+#import "SCAppDelegate.h"
 
 @interface SCDeckCloudListViewController ()
 @property (strong,nonatomic) NSArray *selectedCardArray;
@@ -102,6 +103,11 @@
             
             self.selectedCardArray = objects;
             self.selectedDeck = obj;
+            
+            
+            SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+            NSLog(@"%@",appDelegate.window.rootViewController);
+            //Should kill the query when user leaves the screen
             [self performSegueWithIdentifier:@"goShowCardsCloud" sender:self];
         } else {
            [MBProgressHUD hideHUDForView:self.view animated:YES];
