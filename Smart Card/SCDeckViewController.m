@@ -7,7 +7,7 @@
 //
 
 #import "SCDeckViewController.h"
-#import "SCShowCardsViewController.h"
+#import "SCShowCardDBViewController.h"
 #import "SCConstants.h"
 #import <Parse/Parse.h>
 #import "Card+CRUD.h"
@@ -62,8 +62,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //if the user clicks on the save Button
-    if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
-        SCShowCardsViewController *cvc = (SCShowCardsViewController *) segue.destinationViewController;
+    if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
+        SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
         [self saveModifications];
         cvc.deck = self.selectedDeck;
     }
@@ -73,11 +73,11 @@
     BOOL isEdit = [Deck editDeck:self.selectedDeck withName:self.deckNameTextField.text withLat:self.selectedDeck.lat withLon:self.selectedDeck.lon];
     if (!isEdit) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"Unable to modify this deck!"
-                                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                                      delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [alert show];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sucess" message:@"Deck informations was updated!"
-                                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                                      delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [alert show];
         
     }

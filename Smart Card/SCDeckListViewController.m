@@ -10,7 +10,7 @@
 
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
-#import"SCShowCardsViewController.h"
+#import"SCShowCardDBViewController.h"
 #import "SCDeckTableViewCell.h"
 
 
@@ -95,8 +95,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]] ) {
-        SCShowCardsViewController *csvc = (SCShowCardsViewController *) segue.destinationViewController;
+    if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]] ) {
+        SCShowCardDBViewController *csvc = (SCShowCardDBViewController *) segue.destinationViewController;
         
         csvc.deck = self.selectedDeck;
     }

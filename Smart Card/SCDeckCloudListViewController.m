@@ -13,7 +13,7 @@
 #import "SCAppDelegate.h"
 
 @interface SCDeckCloudListViewController ()
-@property (strong,nonatomic) NSArray *selectedCardArray;
+@property (strong,nonatomic) NSMutableArray *selectedCardArray;
 @property (strong,nonatomic) PFObject *selectedDeck;
 @end
 
@@ -101,7 +101,7 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
             
-            self.selectedCardArray = objects;
+            self.selectedCardArray = [objects mutableCopy];
             self.selectedDeck = obj;
             
             

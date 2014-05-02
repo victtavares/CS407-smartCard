@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645BD18E38EEC0019DB6E /* Card+CRUD.m */; };
-		E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */; };
 		E163C6F018E20BF00008DE4C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E163C6EF18E20BF00008DE4C /* CoreData.framework */; };
 		E167A49518E262E8007DCA3B /* SCAppDelegate+MCO.m in Sources */ = {isa = PBXBuildFile; fileRef = E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */; };
 		E17B3C8B1911D03E00B58C46 /* SCAddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B3C8A1911D03E00B58C46 /* SCAddCardViewController.m */; };
 		E198C62E190B281800CA8210 /* SCDeckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */; };
+		E1A1FBD51914340B00A108FC /* SCShowCardDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FBD41914340B00A108FC /* SCShowCardDBViewController.m */; };
+		E1A1FBD8191449EF00A108FC /* SCModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FBD7191449EF00A108FC /* SCModifyViewController.m */; };
+		E1A1FBDB19144C0B00A108FC /* SCEditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FBDA19144C0B00A108FC /* SCEditCardViewController.m */; };
 		E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */; };
 		E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B91AD318E210AD0028B355 /* Model.xcdatamodeld */; };
 		E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */; };
@@ -67,8 +69,6 @@
 /* Begin PBXFileReference section */
 		E13645BC18E38EEC0019DB6E /* Card+CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+CRUD.h"; sourceTree = "<group>"; };
 		E13645BD18E38EEC0019DB6E /* Card+CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+CRUD.m"; sourceTree = "<group>"; };
-		E13645C518E3925F0019DB6E /* SCShowCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShowCardsViewController.h; sourceTree = "<group>"; };
-		E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShowCardsViewController.m; sourceTree = "<group>"; };
 		E163C6EF18E20BF00008DE4C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E167A49318E262E8007DCA3B /* SCAppDelegate+MCO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCAppDelegate+MCO.h"; sourceTree = "<group>"; };
 		E167A49418E262E8007DCA3B /* SCAppDelegate+MCO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCAppDelegate+MCO.m"; sourceTree = "<group>"; };
@@ -76,6 +76,12 @@
 		E17B3C8A1911D03E00B58C46 /* SCAddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddCardViewController.m; sourceTree = "<group>"; };
 		E198C62C190B281800CA8210 /* SCDeckTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeckTableViewCell.h; sourceTree = "<group>"; };
 		E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeckTableViewCell.m; sourceTree = "<group>"; };
+		E1A1FBD31914340B00A108FC /* SCShowCardDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShowCardDBViewController.h; sourceTree = "<group>"; };
+		E1A1FBD41914340B00A108FC /* SCShowCardDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShowCardDBViewController.m; sourceTree = "<group>"; };
+		E1A1FBD6191449EF00A108FC /* SCModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCModifyViewController.h; sourceTree = "<group>"; };
+		E1A1FBD7191449EF00A108FC /* SCModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCModifyViewController.m; sourceTree = "<group>"; };
+		E1A1FBD919144C0B00A108FC /* SCEditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEditCardViewController.h; sourceTree = "<group>"; };
+		E1A1FBDA19144C0B00A108FC /* SCEditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEditCardViewController.m; sourceTree = "<group>"; };
 		E1B865DE190AC74B00854C1A /* SLGlowingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLGlowingTextField.h; sourceTree = "<group>"; };
 		E1B865DF190AC74B00854C1A /* SLGlowingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLGlowingTextField.m; sourceTree = "<group>"; };
 		E1B91AD418E210AD0028B355 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -192,12 +198,16 @@
 		E1B91AD218E210910028B355 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E1A1FBD6191449EF00A108FC /* SCModifyViewController.h */,
+				E1A1FBD7191449EF00A108FC /* SCModifyViewController.m */,
+				E1A1FBD31914340B00A108FC /* SCShowCardDBViewController.h */,
+				E1A1FBD41914340B00A108FC /* SCShowCardDBViewController.m */,
 				E17B3C891911D03E00B58C46 /* SCAddCardViewController.h */,
 				E17B3C8A1911D03E00B58C46 /* SCAddCardViewController.m */,
+				E1A1FBD919144C0B00A108FC /* SCEditCardViewController.h */,
+				E1A1FBDA19144C0B00A108FC /* SCEditCardViewController.m */,
 				E198C62C190B281800CA8210 /* SCDeckTableViewCell.h */,
 				E198C62D190B281800CA8210 /* SCDeckTableViewCell.m */,
-				E13645C518E3925F0019DB6E /* SCShowCardsViewController.h */,
-				E13645C618E3925F0019DB6E /* SCShowCardsViewController.m */,
 				E1D0ACB318E3305A000D795B /* SCCoreDataViewController.h */,
 				E1D0ACB418E3305A000D795B /* SCCoreDataViewController.m */,
 				E1FA21C018D251B300989AFB /* SCDeckViewController.h */,
@@ -433,16 +443,18 @@
 				E1D0ACB518E3305A000D795B /* SCCoreDataViewController.m in Sources */,
 				E1FA21C518D257FC00989AFB /* SCDeckListViewController.m in Sources */,
 				E1E1264019098684006876EF /* SCShowCardViewController.m in Sources */,
+				E1A1FBDB19144C0B00A108FC /* SCEditCardViewController.m in Sources */,
 				E1E126371908BA4B006876EF /* Card.m in Sources */,
 				E13645BE18E38EEC0019DB6E /* Card+CRUD.m in Sources */,
 				E1D0ACBE18E3416C000D795B /* Deck+CRUD.m in Sources */,
 				E1E1263A1908BA4B006876EF /* Deck.m in Sources */,
 				E1FEC1BD190AF96900463499 /* SCDropBehavior.m in Sources */,
+				E1A1FBD51914340B00A108FC /* SCShowCardDBViewController.m in Sources */,
 				E1B865E0190AC74B00854C1A /* SLGlowingTextField.m in Sources */,
+				E1A1FBD8191449EF00A108FC /* SCModifyViewController.m in Sources */,
 				E1B91AD518E210AD0028B355 /* Model.xcdatamodeld in Sources */,
 				E1FA21C218D251B300989AFB /* SCDeckViewController.m in Sources */,
 				E17B3C8B1911D03E00B58C46 /* SCAddCardViewController.m in Sources */,
-				E13645C718E3925F0019DB6E /* SCShowCardsViewController.m in Sources */,
 				E1E1263D1908CFE2006876EF /* SCDeckCloudListViewController.m in Sources */,
 				E1FEC1BC190AF96900463499 /* SCCardView.m in Sources */,
 				E1FA219818D242CA00989AFB /* main.m in Sources */,

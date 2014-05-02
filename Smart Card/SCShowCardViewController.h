@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SCShowCardViewController : UIViewController
-@property (strong,nonatomic) NSArray *cards;
+@property (strong,nonatomic) NSMutableArray *cards;
 
 //Views
 @property (weak, nonatomic) IBOutlet UIView *cardView;
