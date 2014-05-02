@@ -7,22 +7,43 @@
 //
 
 #import "SCAddCardViewController.h"
+#import "SCShowCardsViewController.h"
+#import "Card+CRUD.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface SCAddCardViewController () < UITextViewDelegate>
+@interface SCAddCardViewController () < UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *textViewB;
 @property (weak, nonatomic) IBOutlet UITextView *textViewA;
 @property (weak, nonatomic) IBOutlet UIView *cardAView;
 @property (weak, nonatomic) IBOutlet UIView *cardBView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageA;
+@property (weak, nonatomic) IBOutlet UIImageView *imageB;
+
+@property (weak, nonatomic) IBOutlet UIButton *deleteImageA;
+@property (weak, nonatomic) IBOutlet UIButton *deleteImageB;
+
 @property (nonatomic) CGRect selectedTextViewCoordinates;
 @property (nonatomic) CGRect textViewACoordinates;
 @property (nonatomic) CGRect textViewBCoordinates;
+@property (nonatomic) BOOL isCameraA;
 
 
 
 @end
 
 @implementation SCAddCardViewController
+
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view.
+}
+
+#pragma mark - Design
 
 - (void) viewWillAppear:(BOOL)animated {
     [self registerForKeyboardNotifications];
@@ -50,13 +71,6 @@
     [self.scrollView setContentSize:CGSizeMake(320, 480)];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    
-    // Do any additional setup after loading the view.
-}
 
 
 
@@ -139,18 +153,104 @@
         [textView resignFirstResponder];
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) saveCard {
+    BOOL isAdded = [Card addCardWithContentA:self.textViewA.text inContentB:self.textViewB.text withImageA:self.imageA.image withImageB:self.imageB.image  ImageinDeck:self.selectedDeck intoManagedObjectContext:[self.selectedDeck managedObjectContext]];
+    
+    
+    if (!isAdded) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Blank Field" message:@"The card could not be added,one of the fields are blank!"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+
+        
+        
+    }else {
+        NSString *message = [NSString stringWithFormat:@" Card added to deck %@!",self.selectedDeck.name];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:message message:nil                                                      delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [alert show];
+    }
+
+
 }
-*/
+
+#pragma mark - Actions
+
+- (IBAction)cameraButtonPressed:(UIButton *)sender {
+    //tag 0: camera A |  tag 1: camera B
+    if (!sender.tag) self.isCameraA = true;
+    else self.isCameraA = false;
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+    
+    imagePicker.allowsEditing = YES;
+    
+    [self presentViewController:imagePicker
+                       animated:YES completion:nil];
+    
+    NSLog(@"foi aqui");
+    
+}
+
 - (IBAction)cancelButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+}
+- (IBAction)deleteImageAButtonPressed:(id)sender {
+    self.imageA.image = nil;
+    self.deleteImageA.hidden = YES;
+    
+}
+
+
+- (IBAction)deleteImageBButtonPressed:(id)sender {
+    self.imageB.image = nil;
+    self.deleteImageB.hidden = YES;
+}
+
+#pragma mark - UIImagepickercontroller delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+   if (self.isCameraA) {
+       self.imageA.image = chosenImage;
+       self.textViewA.text = nil;
+       self.deleteImageA.hidden = NO;
+    }
+    else {
+        self.imageB.image = chosenImage;
+        self.textViewB.text = nil;
+        self.deleteImageB.hidden = NO;
+    }
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //if the user clicks on the save Button
+    if([segue.destinationViewController isKindOfClass:[SCShowCardsViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
+        NSLog(@"went here");
+        SCShowCardsViewController *cvc = (SCShowCardsViewController *) segue.destinationViewController;
+        [self saveCard];
+        cvc.deck = self.selectedDeck;
+    }
+}
+
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck+CRUD.h"
 
 @interface SCAddCardViewController : UIViewController
+
+@property(strong,nonatomic) Deck *selectedDeck;
 
 @end

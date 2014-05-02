@@ -10,6 +10,7 @@
 #import "Card+CRUD.h"
 #import "SCDeckViewController.h"
 #import "SCGameViewController.h"
+#import "SCAddCardViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 
@@ -476,6 +477,11 @@
         SCGameViewController *dvc = (SCGameViewController *) segue.destinationViewController;
         dvc.selectedDeck = self.deck;
     }
+    
+    if([segue.destinationViewController isKindOfClass:[SCAddCardViewController class]] ) {
+        SCAddCardViewController *avc = (SCAddCardViewController *) segue.destinationViewController;
+        avc.selectedDeck = self.deck;
+    }
 
 }
 
@@ -490,6 +496,10 @@
 - (IBAction)cancelManageDeck:(UIStoryboardSegue *)segue {
     [self initialSetup];
    
+}
+
+-(IBAction) AddCard:(UIStoryboardSegue *) segue {
+    [self initialSetup];
 }
 
 #pragma mark - Alert View delegate
