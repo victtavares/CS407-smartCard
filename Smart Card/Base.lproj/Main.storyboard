@@ -80,7 +80,6 @@
                                             <barButtonItem systemItem="add" id="6We-vE-6kR" userLabel="add">
                                                 <connections>
                                                     <action selector="addDeckButtonPressed:" destination="YcD-QY-C3x" id="a8s-ix-FJ1"/>
-                                                    <segue destination="zkb-Rj-rT2" kind="push" identifier="goShowCards" id="WPS-aR-WZo"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -296,7 +295,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgr-US-UkX">
-                                                <rect key="frame" x="200" y="8" width="24" height="24"/>
+                                                <rect key="frame" x="203" y="8" width="24" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="editButton">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -307,7 +306,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gef-18-3Vj">
-                                                <rect key="frame" x="143" y="-1" width="40" height="40"/>
+                                                <rect key="frame" x="141" y="-1" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="gameIcon">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -977,7 +976,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="n5I-XS-I97"/>
         <segue reference="nUL-rb-5Bc"/>
     </inferredMetricsTieBreakers>
 </document>
