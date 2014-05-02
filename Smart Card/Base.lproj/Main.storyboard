@@ -92,11 +92,12 @@
                     <connections>
                         <outlet property="originalTableView" destination="Gi7-GC-TTc" id="B19-V0-UPn"/>
                         <segue destination="cEo-OX-RgY" kind="push" identifier="addEmptyDeck" id="nUL-rb-5Bc"/>
+                        <segue destination="zkb-Rj-rT2" kind="push" identifier="goShowCards" id="7zP-6X-6Jn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTq-UH-jj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="-74"/>
+            <point key="canvasLocation" x="557" y="-114"/>
         </scene>
         <!--Deck Cloud List View Controller - Public Decks-->
         <scene sceneID="kz4-Ye-aHy">
@@ -149,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILK-im-WbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="570"/>
+            <point key="canvasLocation" x="530" y="724"/>
         </scene>
         <!--Show Card Cloud View Controller - Deck 1-->
         <scene sceneID="BqG-Nr-CNS">
@@ -976,6 +977,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="7zP-6X-6Jn"/>
         <segue reference="nUL-rb-5Bc"/>
     </inferredMetricsTieBreakers>
 </document>
