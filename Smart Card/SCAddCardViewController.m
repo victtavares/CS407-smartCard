@@ -17,6 +17,14 @@
 
 @implementation SCAddCardViewController
 
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    if (self.isEmpty) {
+        [self.navigationController.navigationBar setHidden:YES];
+    }
+    
+}
+
 -(void) viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -40,12 +48,28 @@
         
         
     }else {
-        NSString *message = [NSString stringWithFormat:@" Card added to deck %@!",self.selectedDeck.name];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:message message:nil                                                      delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [alert show];
+//        NSString *message = [NSString stringWithFormat:@" Card added to deck %@!",self.selectedDeck.name];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:message message:nil                                                      delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+//        [alert show];
     }
 
 
+}
+//Came from a empty deck
+- (IBAction)cancelButtonPressed:(id)sender {
+    if (self.isEmpty) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController.navigationBar setHidden:NO];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)saveButtonPressed:(id)sender {
+    if (self.isEmpty) {
+        [self.navigationController.navigationBar setHidden:NO];
+        [self performSegueWithIdentifier:@"goFromEmptyDeck" sender:self];
+    }
+    
 }
 
 #pragma mark - Segue
@@ -53,7 +77,14 @@
 {
     //if the user clicks on the save Button
     if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
-        NSLog(@"went here");
+        NSLog(@"came from allready full deck!");
+        SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
+        [self saveCard];
+        cvc.deck = self.selectedDeck;
+    }
+    
+    if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"goFromEmptyDeck"]) {
+        NSLog(@"came from Empty Deck!");
         SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
         [self saveCard];
         cvc.deck = self.selectedDeck;

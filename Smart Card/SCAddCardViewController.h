@@ -11,6 +11,6 @@
 #import "Deck+CRUD.h"
 
 @interface SCAddCardViewController : SCModifyViewController
-
+@property (nonatomic) BOOL isEmpty;
 
 @end

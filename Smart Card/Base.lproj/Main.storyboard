@@ -92,6 +92,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="originalTableView" destination="Gi7-GC-TTc" id="B19-V0-UPn"/>
+                        <segue destination="cEo-OX-RgY" kind="push" identifier="addEmptyDeck" id="nUL-rb-5Bc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTq-UH-jj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -459,6 +460,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="saveButtonPressed:" destination="cEo-OX-RgY" eventType="touchUpInside" id="u69-n6-Lpx"/>
                                             <segue destination="oVa-3f-tSi" kind="unwind" identifier="saveUnwindSegue" unwindAction="AddCard:" id="an6-d9-9uG"/>
                                         </connections>
                                     </button>
@@ -591,12 +593,13 @@
                         <outlet property="scrollView" destination="ahc-hB-42L" id="Utm-gC-hrl"/>
                         <outlet property="textViewA" destination="rj0-Mn-PWc" id="QLG-jk-hUi"/>
                         <outlet property="textViewB" destination="GQh-NL-Lyw" id="6U1-nC-ILA"/>
+                        <segue destination="zkb-Rj-rT2" kind="push" identifier="goFromEmptyDeck" id="n5I-XS-I97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbv-QG-uy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oVa-3f-tSi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="-1052"/>
+            <point key="canvasLocation" x="1347" y="-1030"/>
         </scene>
         <!--Deck View Controller-->
         <scene sceneID="E2d-Q9-4fU">
@@ -953,7 +956,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWU-ix-iyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Gby-H3-9aR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="-390"/>
+            <point key="canvasLocation" x="1891" y="-434"/>
         </scene>
     </scenes>
     <resources>
@@ -973,4 +976,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="n5I-XS-I97"/>
+        <segue reference="nUL-rb-5Bc"/>
+    </inferredMetricsTieBreakers>
 </document>

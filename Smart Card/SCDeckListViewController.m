@@ -11,6 +11,7 @@
 #import "SCAppDelegate.h"
 #import "Deck+CRUD.h"
 #import"SCShowCardDBViewController.h"
+#import "SCAddCardViewController.h"
 #import "SCDeckTableViewCell.h"
 
 
@@ -79,7 +80,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     self.selectedDeck = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"goShowCards" sender:self];
+    NSSet *cards = self.selectedDeck.cards;
+    if ([cards count]) {
+        [self performSegueWithIdentifier:@"goShowCards" sender:self];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Empty Deck" message:@"Do you want add cards to this deck?"
+                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil];
+        [alert show];
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
@@ -100,6 +109,13 @@
         
         csvc.deck = self.selectedDeck;
     }
+    
+    if([segue.destinationViewController isKindOfClass:[SCAddCardViewController class]] ) {
+        SCAddCardViewController *csvc = (SCAddCardViewController *) segue.destinationViewController;
+        csvc.selectedDeck = self.selectedDeck;
+        csvc.isEmpty = true;
+    }
+    
     
 }
 
@@ -124,6 +140,12 @@
                                                               delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
                 [alert show];
             }
+        }
+    }
+    
+    if ([alertView.title isEqualToString:@"Empty Deck"]) {
+        if (buttonIndex == 1) {
+            [self performSegueWithIdentifier:@"addEmptyDeck" sender:self];
         }
     }
 }
