@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "gameBG.png"
+      "filename" : "card1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "gameBG-1.png"
+      "filename" : "card1-1.png"
     }
   ],
   "info" : {

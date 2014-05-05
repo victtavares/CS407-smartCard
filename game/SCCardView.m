@@ -37,7 +37,7 @@
 }
 
 
--(void)setSideAfromDeck:(Deck *)deck {
+-(void)setSideAfromDeck:(Deck *)deck withImage:(UIImage *)image{
     NSArray *cards = [deck.cards allObjects];
     if ([cards count]) {
         int i = arc4random()%[cards count];
@@ -46,7 +46,7 @@
         if (card.imageA) {
             [self.imageView setImage:[UIImage imageWithData:card.imageA]];
         } else {
-            [self.imageView setImage:[UIImage imageNamed:@"gameBGImage.png"]];
+            [self.imageView setImage:image];
         }
         if (card.contentA) {
             [self.textView setText:card.contentA];
@@ -55,7 +55,7 @@
 
 }
 
--(void)setSideBfromDeck:(Deck *)deck {
+-(void)setSideBfromDeck:(Deck *)deck withImage:(UIImage *)image{
     NSArray *cards = [deck.cards allObjects];
     if ([cards count]) {
         int i = arc4random()%[cards count];
@@ -64,7 +64,7 @@
         if (card.imageB) {
             [self.imageView setImage:[UIImage imageWithData:card.imageB]];
         } else {
-            [self.imageView setImage:[UIImage imageNamed:@"gameBGImage.png"]];
+            [self.imageView setImage:image];
         }
         if (card.contentB) {
             [self.textView setText:card.contentB];
