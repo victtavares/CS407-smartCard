@@ -27,7 +27,6 @@
         self.imageA.image = [UIImage imageWithData:self.cardToEdit.imageA];
         self.deleteImageA.hidden = NO;
     } else {
-        NSLog(@"foi aqui");
         self.textViewA.text = self.cardToEdit.contentA;
     }
     
@@ -48,7 +47,6 @@
 {
     //if the user clicks on the save Button
     if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"editUnwindSegue"]) {
-        NSLog(@"went here");
         SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
         [self editCard];
         cvc.deck = self.selectedDeck;

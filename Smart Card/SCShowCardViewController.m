@@ -11,7 +11,7 @@
 
 //ABSTRACT CLASS - NEED TO SET VARIABLES IN PARENT CLASS
 @interface SCShowCardViewController ()
-
+@property (assign, nonatomic) CATransform3D flipTransformation;
 
 @end
 
@@ -29,18 +29,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.cardView.layer.cornerRadius = 10;
     self.cardView.layer.masksToBounds = YES;
 }
 
 
 - (IBAction)flipButtonPressed:(id)sender {
+    [self flipAnimation];
+    //self.cardView.layer.transform = self.flipTransformation;
+    //card.layer.transform = self.initialTransformation;
     if (self.isSideA) [self prepareSideB];
     else [self prepareSideA];
 	
 }
 
 
+- (void) flipAnimation {
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.60];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.cardView cache:YES];
+    [UIView commitAnimations];
+}
 
 #pragma mark - Aux Functions
 -(void) prepareSideA {

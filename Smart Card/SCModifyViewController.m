@@ -98,7 +98,6 @@
 -(void) textViewDidChange:(UITextView *)textView
 {
     
-    NSLog(@"Foi aqui2");
     if(textView.text.length == 0){
         textView.textColor = [UIColor lightGrayColor];
         textView.text = @"Put a text or a image here";
@@ -125,13 +124,25 @@
     self.selectedTextViewCoordinates = CGRectNull;
     if(textView.text.length == 0){
         textView.textColor = [UIColor lightGrayColor];
-        NSLog(@"Foi aqui");
         textView.text = @"Put a text or a image here";
         [textView resignFirstResponder];
     }
 }
 
-
+-(void) deleteAnimation:(UIImageView *) myView {
+    [UIView animateWithDuration:0.6 animations:^{
+        [myView setAlpha:0];
+    }completion:^(BOOL finished) {
+        myView.image = nil;
+    }];
+//    [UIView animateWithDuration:1.0 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        [myView setAlpha:0.f];
+//    } completion:^(BOOL finished) {
+//        [UIView animateWithDuration:0.5 delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            [myView setAlpha:1.f];
+//        } completion:nil];
+//    }];
+}
 
 #pragma mark - Actions
 
@@ -165,14 +176,14 @@
     
 }
 - (IBAction)deleteImageAButtonPressed:(id)sender {
-    self.imageA.image = nil;
+    [self deleteAnimation:self.imageA];
     self.deleteImageA.hidden = YES;
     
 }
 
 
 - (IBAction)deleteImageBButtonPressed:(id)sender {
-    self.imageB.image = nil;
+    [self deleteAnimation:self.imageB];
     self.deleteImageB.hidden = YES;
 }
 
@@ -187,10 +198,8 @@
                                             interpolationQuality:kCGInterpolationHigh];
     
     if (self.isCameraA) {
-        NSLog(@"went here");
         self.imageA.image = resizedImage;
         self.textViewA.text = nil;
-        NSLog(@"textViewA: %@",self.textViewA.text);
         self.deleteImageA.hidden = NO;
     }
     else {

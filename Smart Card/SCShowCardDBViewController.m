@@ -13,7 +13,7 @@
 #import "SCEditCardViewController.h"
 #import "Card+CRUD.h"
 
-@interface SCShowCardDBViewController ()
+@interface SCShowCardDBViewController () 
 @property (weak, nonatomic) IBOutlet PFImageView *imageView;
 @end
 
@@ -38,6 +38,9 @@
     }
 }
 
+
+
+
 -(void) clearCache {
     self.sideAImage = nil;
     self.sideBImage = nil;
@@ -55,6 +58,18 @@
     [self prepareSideA];
 
 
+}
+
+-(void) deleteButtonAnimation {
+    
+    [UIView animateWithDuration:1.0 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.cardView setAlpha:0.f];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.cardView setAlpha:1.f];
+            [self nextButtonPressed:nil];
+        } completion:nil];
+    }];
 }
 
 #pragma mark - Actions
@@ -135,6 +150,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     //If its the empty Deck Alert
     if ([alertView.title isEqualToString:@"Delete Card"] && buttonIndex == 1) {
+        
         Card *cardToDelete = [self.cards objectAtIndex:self.currentCardIndex];
         [Card deleteCard:cardToDelete];
         
@@ -154,7 +170,7 @@
             
             [self.navigationController popViewControllerAnimated:YES];
     	} else {
-        	[self nextButtonPressed:nil];
+            [self deleteButtonAnimation];
     	}
 	}
     

@@ -25,7 +25,6 @@
     
     //Making Palceholder
     NSString *message = @"Put a text or a image here";
-    NSLog(@"foi aqui no placeholder");
     self.textViewA.text = message;
     self.textViewB.text = message;
     self.textViewA.textColor = [UIColor lightGrayColor];
@@ -76,14 +75,12 @@
 {
     //if the user clicks on the save Button
     if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"saveUnwindSegue"]) {
-        NSLog(@"came from allready full deck!");
         SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
         [self saveCard];
         cvc.deck = self.selectedDeck;
     }
     
     if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"goFromEmptyDeck"]) {
-        NSLog(@"came from Empty Deck!");
         SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
         [self saveCard];
         cvc.deck = self.selectedDeck;
