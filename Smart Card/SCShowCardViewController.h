@@ -29,4 +29,8 @@
 
 -(void) prepareSideA;
 -(void) prepareSideB;
+
+
+- (void) animationNext;
+-(void) animationPrevious;
 @end

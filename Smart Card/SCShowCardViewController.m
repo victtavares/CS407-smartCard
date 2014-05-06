@@ -37,8 +37,6 @@
 
 - (IBAction)flipButtonPressed:(id)sender {
     [self flipAnimation];
-    //self.cardView.layer.transform = self.flipTransformation;
-    //card.layer.transform = self.initialTransformation;
     if (self.isSideA) [self prepareSideB];
     else [self prepareSideA];
 	
@@ -53,6 +51,22 @@
     [UIView commitAnimations];
 }
 
+
+- (void) animationNext {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.8];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.cardView cache:YES];
+    [UIView commitAnimations];
+}
+
+
+-(void) animationPrevious {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.8];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.cardView cache:YES];
+    [UIView commitAnimations];
+    
+}
 #pragma mark - Aux Functions
 -(void) prepareSideA {
     self.sideLabel.text = @"Side A";

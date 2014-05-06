@@ -135,13 +135,7 @@
     }completion:^(BOOL finished) {
         myView.image = nil;
     }];
-//    [UIView animateWithDuration:1.0 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
-//        [myView setAlpha:0.f];
-//    } completion:^(BOOL finished) {
-//        [UIView animateWithDuration:0.5 delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//            [myView setAlpha:1.f];
-//        } completion:nil];
-//    }];
+
 }
 
 #pragma mark - Actions

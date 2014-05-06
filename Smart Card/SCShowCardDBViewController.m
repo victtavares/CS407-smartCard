@@ -60,6 +60,7 @@
 
 }
 
+#pragma mark - Animation
 -(void) deleteButtonAnimation {
     
     [UIView animateWithDuration:1.0 delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -83,6 +84,10 @@
     	self.currentCardIndex = [self.cards count] -1;
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
+    
+    if ([self.cards count] != 1) {
+        [self animationPrevious];
+    }
     [self updateCounter];
     [self loadContentAndPrepareSideAFromCard:card];
     
@@ -98,6 +103,9 @@
     	self.currentCardIndex = 0;
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
+    if ([self.cards count] != 1) {
+        [self animationNext];
+    }
     [self updateCounter];
     [self loadContentAndPrepareSideAFromCard:card];
 }

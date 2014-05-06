@@ -92,6 +92,9 @@
     	self.currentCardIndex = [self.cards count] -1;
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
+    if ([self.cards count] != 1) {
+        [self animationPrevious];
+    }
     [self updateCounter];
     [self loadContentAndPrepareSideAFromCard:card];
     
@@ -107,6 +110,9 @@
     	self.currentCardIndex = 0;
     	card = [self.cards objectAtIndex:self.currentCardIndex];
 	}
+    if ([self.cards count] != 1) {
+        [self animationNext];
+    }
     [self updateCounter];
     [self loadContentAndPrepareSideAFromCard:card];
 }
