@@ -19,6 +19,7 @@ extern NSString *const kDeckLonKey;
 extern NSString *const kDeckNameInitialKey;
 extern NSString *const KDeckQuantityCardsKey;
 extern NSString *const kDeckClassName;
+extern NSString *const kPhoneIdentifier;
 
 
 
@@ -30,6 +31,7 @@ extern NSString *const kCardimageAKey;
 extern NSString *const kCardimageBKey;
 extern NSString *const kCardDeckKey;
 extern NSString *const kCardClassName;
+
 
 
 @end

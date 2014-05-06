@@ -23,18 +23,17 @@
         [self.navigationController.navigationBar setHidden:YES];
     }
     
-}
-
--(void) viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
     //Making Palceholder
     NSString *message = @"Put a text or a image here";
+    NSLog(@"foi aqui no placeholder");
     self.textViewA.text = message;
     self.textViewB.text = message;
     self.textViewA.textColor = [UIColor lightGrayColor];
     self.textViewB.textColor = [UIColor lightGrayColor];
+    
 }
+
+
 
 - (void) saveCard {
     BOOL isAdded = [Card addCardWithContentA:self.textViewA.text inContentB:self.textViewB.text withImageA:self.imageA.image withImageB:self.imageB.image  ImageinDeck:self.selectedDeck intoManagedObjectContext:[self.selectedDeck managedObjectContext]];

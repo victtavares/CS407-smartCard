@@ -98,6 +98,7 @@
 -(void) textViewDidChange:(UITextView *)textView
 {
     
+    NSLog(@"Foi aqui2");
     if(textView.text.length == 0){
         textView.textColor = [UIColor lightGrayColor];
         textView.text = @"Put a text or a image here";
@@ -124,6 +125,7 @@
     self.selectedTextViewCoordinates = CGRectNull;
     if(textView.text.length == 0){
         textView.textColor = [UIColor lightGrayColor];
+        NSLog(@"Foi aqui");
         textView.text = @"Put a text or a image here";
         [textView resignFirstResponder];
     }
@@ -185,8 +187,10 @@
                                             interpolationQuality:kCGInterpolationHigh];
     
     if (self.isCameraA) {
+        NSLog(@"went here");
         self.imageA.image = resizedImage;
         self.textViewA.text = nil;
+        NSLog(@"textViewA: %@",self.textViewA.text);
         self.deleteImageA.hidden = NO;
     }
     else {

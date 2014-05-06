@@ -91,6 +91,7 @@
     
     // Follow relationship
     [postQuery whereKey:kCardDeckKey equalTo:obj];
+
     
     //Adding HUD
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

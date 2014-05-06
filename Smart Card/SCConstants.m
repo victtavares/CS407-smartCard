@@ -20,6 +20,7 @@ NSString *const kDeckLonKey = @"lon";
 NSString *const kDeckNameInitialKey = @"nameInitial";
 NSString *const KDeckQuantityCardsKey = @"quantityCards";
 NSString *const kDeckClassName = @"Deck";
+NSString *const kPhoneIdentifier = @"phoneIdentifier";
 
 #pragma mark - PFObject Card Class
 // Field keys
