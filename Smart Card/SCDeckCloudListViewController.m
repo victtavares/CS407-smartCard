@@ -103,12 +103,15 @@
             
             self.selectedCardArray = [objects mutableCopy];
             self.selectedDeck = obj;
+        
+            //try to perform a segue, if the query takes long and it's not here doesn't go
+            @try {
+                [self performSegueWithIdentifier:@"goShowCardsCloud" sender:self];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Exception %@", [exception reason]);
+            }
             
-            
-            SCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-            NSLog(@"%@",appDelegate.window.rootViewController);
-            //Should kill the query when user leaves the screen
-            [self performSegueWithIdentifier:@"goShowCardsCloud" sender:self];
         } else {
            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }

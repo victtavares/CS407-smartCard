@@ -7,6 +7,7 @@
 //
 
 #import "SCModifyViewController.h"
+#import "UIImage+ResizeAdditions.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SCModifyViewController () < UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -178,14 +179,18 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    //Resizing Image, save time uploading it
+    UIImage *resizedImage = [chosenImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+                                                          bounds:CGSizeMake(288.0f, 262.0f)
+                                            interpolationQuality:kCGInterpolationHigh];
     
     if (self.isCameraA) {
-        self.imageA.image = chosenImage;
+        self.imageA.image = resizedImage;
         self.textViewA.text = nil;
         self.deleteImageA.hidden = NO;
     }
     else {
-        self.imageB.image = chosenImage;
+        self.imageB.image = resizedImage;
         self.textViewB.text = nil;
         self.deleteImageB.hidden = NO;
     }

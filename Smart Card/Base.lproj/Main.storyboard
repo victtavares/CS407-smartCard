@@ -256,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT8-76-aaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="565"/>
+            <point key="canvasLocation" x="1039" y="742"/>
         </scene>
         <!--Show CardDB View Controller - Deck 1-->
         <scene sceneID="BUW-z9-4bD">
