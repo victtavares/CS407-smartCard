@@ -65,7 +65,12 @@
 - (IBAction)saveButtonPressed:(id)sender {
     if (self.isEmpty) {
         [self.navigationController.navigationBar setHidden:NO];
-        [self performSegueWithIdentifier:@"goFromEmptyDeck" sender:self];
+        SCShowCardDBViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"showCard"];
+        UINavigationController *navController = self.navigationController;
+        [navController popViewControllerAnimated:NO];
+        [navController pushViewController:cvc animated:YES];
+        [self saveCard];
+        cvc.deck = self.selectedDeck;
     }
     
 }
@@ -80,11 +85,7 @@
         cvc.deck = self.selectedDeck;
     }
     
-    if([segue.destinationViewController isKindOfClass:[SCShowCardDBViewController class]]  && [segue.identifier isEqualToString:@"goFromEmptyDeck"]) {
-        SCShowCardDBViewController *cvc = (SCShowCardDBViewController *) segue.destinationViewController;
-        [self saveCard];
-        cvc.deck = self.selectedDeck;
-    }
+
 }
 
 

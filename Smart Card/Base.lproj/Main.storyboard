@@ -261,7 +261,7 @@
         <!--Show CardDB View Controller - Deck 1-->
         <scene sceneID="BUW-z9-4bD">
             <objects>
-                <viewController id="zkb-Rj-rT2" customClass="SCShowCardDBViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showCard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zkb-Rj-rT2" customClass="SCShowCardDBViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xs1-LS-8E5"/>
                         <viewControllerLayoutGuide type="bottom" id="HGd-Zq-Q1Z"/>
@@ -593,7 +593,6 @@
                         <outlet property="scrollView" destination="ahc-hB-42L" id="Utm-gC-hrl"/>
                         <outlet property="textViewA" destination="rj0-Mn-PWc" id="QLG-jk-hUi"/>
                         <outlet property="textViewB" destination="GQh-NL-Lyw" id="6U1-nC-ILA"/>
-                        <segue destination="zkb-Rj-rT2" kind="push" identifier="goFromEmptyDeck" id="n5I-XS-I97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbv-QG-uy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -977,7 +976,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7zP-6X-6Jn"/>
-        <segue reference="nUL-rb-5Bc"/>
+        <segue reference="MIf-Be-kqy"/>
     </inferredMetricsTieBreakers>
 </document>
