@@ -16,15 +16,51 @@
     BOOL isSteady;
     NSMutableArray *leftColumn;
     NSMutableArray *rightColumn;
+    int imageNumber;
+    UIImage *cardBackgroundImage;
+    int score;
 }
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) SCDropBehavior *dropBehavior;
+@property (weak, nonatomic) IBOutlet UIImageView *backgoundImage;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
 @implementation SCGameViewController
 
+-(void)losePoint{
+    if (score>0) {
+        score = score - 1;
+        self.scoreLabel.text = [NSString stringWithFormat:@"%d",score];
+    }
+}
+
+-(void)winPoint{
+    score = score + 3;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d",score];
+}
+
+- (IBAction)changeBackgroundImage:(id)sender {
+    switch (imageNumber) {
+        case 0: [self.backgoundImage setImage:[UIImage imageNamed:@"game0"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card0"]; break;
+        case 1: [self.backgoundImage setImage:[UIImage imageNamed:@"game1"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card1"]; break;
+        case 2: [self.backgoundImage setImage:[UIImage imageNamed:@"game2"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card2"]; break;
+        case 3: [self.backgoundImage setImage:[UIImage imageNamed:@"game3"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card3"]; break;
+        case 4: [self.backgoundImage setImage:[UIImage imageNamed:@"game4"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card4"]; break;
+        case 5: [self.backgoundImage  setImage:[UIImage imageNamed:@"game5"]];
+            cardBackgroundImage = [UIImage imageNamed:@"card5"]; break;
+        default:
+            break;
+    }
+    imageNumber = (imageNumber + 1)%6;
+}
 
 - (void)viewDidLoad
 {
@@ -34,7 +70,8 @@
     leftColumn = [[NSMutableArray alloc]init];
     rightColumn = [[NSMutableArray alloc]init];
     //[self setCardsId:self.selectedDeck];
-
+    imageNumber = 1;
+    cardBackgroundImage = [UIImage imageNamed:@"card0"];
 }
 
 // Side A and Side B of the same card will have the same id, which will be used in matching Side A and Side B
@@ -59,7 +96,7 @@
         frame.size = CGSizeMake(self.gameView.bounds.size.width/2.0, self.gameView.bounds.size.height/5);
         
         SCCardView *cardView = [[SCCardView alloc]initWithFrame:frame];
-        [cardView setSideAfromDeck:self.selectedDeck];
+        [cardView setSideAfromDeck:self.selectedDeck withImage:cardBackgroundImage];
         
         
         //add index to card view
@@ -84,7 +121,7 @@
         frame.size = CGSizeMake(self.gameView.bounds.size.width/2.0, self.gameView.bounds.size.height/5);
         
         SCCardView *cardView = [[SCCardView alloc]initWithFrame:frame];
-        [cardView setSideBfromDeck:self.selectedDeck];
+        [cardView setSideBfromDeck:self.selectedDeck withImage:cardBackgroundImage];
         
         //add index to cardView
         [rightColumn addObject:cardView];
@@ -108,6 +145,7 @@
         [UIView animateWithDuration:0.1 animations:^{
             cardView.center =CGPointMake(cardView.center.x *(-1), cardView.center.y);
         } completion:^(BOOL finished) {
+            [self losePoint];
             [cardView removeFromSuperview];
             [self.dropBehavior removeItem:cardView];
             
@@ -128,6 +166,7 @@
         [UIView animateWithDuration:0.1 animations:^{
             cardView.center =CGPointMake(cardView.center.x *5/3.0, cardView.center.y);
         } completion:^(BOOL finished) {
+            [self losePoint];
             [cardView removeFromSuperview];
             [self.dropBehavior removeItem:cardView];
             
@@ -153,6 +192,7 @@
                                  cardViewLeft.alpha =0;
                              }
                              completion:^(BOOL finished){
+                                 [self winPoint];
                                  [cardViewLeft removeFromSuperview];
                                  [cardViewRight removeFromSuperview];
                                  [self.dropBehavior removeItem:cardViewLeft];

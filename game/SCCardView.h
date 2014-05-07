@@ -18,8 +18,8 @@
 
 @property int index;//used when cancel two matched cards
 
--(void) setSideAfromDeck:(Deck *)deck;
+-(void) setSideAfromDeck:(Deck *)deck withImage:(UIImage *)image;
 
--(void) setSideBfromDeck:(Deck *)deck;
+-(void) setSideBfromDeck:(Deck *)deck withImage:(UIImage *)image;
 
 @end
