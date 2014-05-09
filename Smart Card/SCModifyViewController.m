@@ -138,12 +138,28 @@
 
 }
 
+-(void) putAnimation:(UIImageView *) myView {
+    [UIView animateWithDuration:0.6 animations:^{
+        [myView setAlpha:1];
+    }completion:^(BOOL finished) {
+        //myView.image = nil;
+    }];
+    
+}
+
 #pragma mark - Actions
 
 - (IBAction)cameraButtonPressed:(UIButton *)sender {
     //tag 0: camera A |  tag 1: camera B
-    if (!sender.tag) self.isCameraA = true;
-    else self.isCameraA = false;
+
+    if (!sender.tag)  {
+       self.isCameraA = true;
+        [self putAnimation:self.imageA];
+    }
+    else {
+        self.isCameraA = false;
+        [self putAnimation:self.imageB];
+    }
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -184,7 +200,6 @@
 #pragma mark - UIImagepickercontroller delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     //Resizing Image, save time uploading it
     UIImage *resizedImage = [chosenImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit

@@ -16,12 +16,9 @@
 @implementation SCEditCardViewController
 
 
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    NSLog(@"%@",self.cardToEdit);
-
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    
     if (self.cardToEdit.imageA) {
         
         self.imageA.image = [UIImage imageWithData:self.cardToEdit.imageA];
@@ -34,8 +31,15 @@
         self.imageB.image = [UIImage imageWithData:self.cardToEdit.imageB];
         self.deleteImageB.hidden = NO;
     } else self.textViewB.text = self.cardToEdit.contentB;
-    
 }
+
+//- (void)viewDidLayoutSubviews
+//{
+//    [super viewDidLayoutSubviews];
+//
+//
+//    
+//}
 
 
 
