@@ -33,15 +33,6 @@
     } else self.textViewB.text = self.cardToEdit.contentB;
 }
 
-//- (void)viewDidLayoutSubviews
-//{
-//    [super viewDidLayoutSubviews];
-//
-//
-//    
-//}
-
-
 
 -(void) editCard {
     [Card editCard:self.cardToEdit withContentA:self.textViewA.text withContentB:self.textViewB.text withImageA:self.imageA.image withImageB:self.imageB.image];
